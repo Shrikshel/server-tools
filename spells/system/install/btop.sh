@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system install btop'"
-
 if command -v btop &>/dev/null; then
     log_debug "btop is already installed."
 else

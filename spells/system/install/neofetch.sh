@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system install neofetch'"
-
 # Install neofetch
 if ! command -v neofetch &>/dev/null; then
     log_info "🔧 Installing neofetch..."

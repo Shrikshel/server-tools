@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system uninstall vnstat'"
-
 if command -v vnstat &>/dev/null; then
     log_info "🔧 Uninstalling vnstat..."
     sudo apt-get remove --purge -y vnstat

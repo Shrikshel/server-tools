@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system uninstall ufw'"
-
 if command -v ufw &>/dev/null; then
     log_info "🔧 Uninstalling ufw..."
     sudo apt-get remove --purge -y ufw

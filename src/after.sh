@@ -1,0 +1,1 @@
+add_separator "<" 90 "red"

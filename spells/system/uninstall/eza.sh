@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system uninstall eza'"
-
 if command -v eza &>/dev/null; then
     log_info "🔧 Uninstalling eza..."
     sudo apt-get remove --purge -y eza

@@ -1,5 +1,3 @@
-log_info "Running Smart Command"
-
 FULL_OUTPUT=false
 
 if [[ "${args[--full]}" == "1" ]]; then

@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system install eza'"
-
 if ! command -v eza &>/dev/null; then
     log_info "🔧 Installing eza..."
     sudo apt-get update -qq

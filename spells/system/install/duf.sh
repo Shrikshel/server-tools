@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system install duf'"
-
 if ! command -v duf &>/dev/null; then
     log_info "🔧 Installing duf..."
     sudo apt-get update -qq

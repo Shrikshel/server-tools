@@ -10,3 +10,4 @@ CONFIG_FILE="${ST_CONFIG_FILE:-$HOME/.config/.bashly.conf}"
 [[ -f "$CONFIG_FILE" ]] && source "$CONFIG_FILE"
 
 source "./src/lib/log.sh"
+source "./src/lib/hr.sh"

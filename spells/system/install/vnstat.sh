@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system install vnstat'"
-
 if ! command -v vnstat &>/dev/null; then
     log_info "🔧 Installing vnstat..."
     sudo apt-get update -qq

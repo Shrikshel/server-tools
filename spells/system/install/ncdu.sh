@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system install ncdu'"
-
 if ! command -v ncdu &>/dev/null; then
     log_info "🔧 Installing ncdu..."
     sudo apt-get update -qq

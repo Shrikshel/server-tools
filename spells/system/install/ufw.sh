@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system install ufw'"
-
 if ! command -v ufw &>/dev/null; then
     log_info "🔧 Installing ufw..."
     sudo apt-get update -qq

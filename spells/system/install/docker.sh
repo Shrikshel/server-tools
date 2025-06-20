@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system install docker'"
-
 if ! command -v docker &>/dev/null; then
     log_info "🔧 Installing Docker..."
     sudo apt-get update -qq

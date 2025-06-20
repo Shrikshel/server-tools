@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-log_info_zap "🚧 Executing Command 'st system uninstall btop'"
-
 if command -v btop &>/dev/null; then
     sudo apt-get remove --purge -y btop
     log_debug "btop Uninstalled Successfully"
