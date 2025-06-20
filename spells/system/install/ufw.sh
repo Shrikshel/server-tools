@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pretty_header "🚀 Installing ufw"
+log_info_zap "🚧 Executing Command 'st system install ufw'"
 
 if ! command -v ufw &>/dev/null; then
     log_info "🔧 Installing ufw..."
@@ -9,10 +9,10 @@ if ! command -v ufw &>/dev/null; then
     log_info "🔧 Enabling ufw..."
     sudo ufw allow 22
     sudo ufw enable
+    log_success "ufw Installed Successfully"
     log_info "🔧 Please run 'sudo ufw allow <port>' to allow other ports as needed. Then run 'sudo ufw enable' to enable the firewall"
 else
-    log_success "✅ ufw is already installed."
+    log_info "✅ ufw is already installed."
 fi
 
-log_success "ufw Installed Successfully"
-pretty_info "To uninstall ufw, run 'st system uninstall ufw'."
+log_info_box "To uninstall ufw, run 'st system uninstall ufw'."

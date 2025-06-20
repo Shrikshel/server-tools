@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-pretty_header "Uninstalling neofetch"
+log_info_zap "🚧 Executing Command 'st system uninstall neofetch'"
 
 if command -v neofetch &>/dev/null; then
     log_info "🔧 Uninstalling neofetch..."
     sudo apt-get remove --purge -y neofetch
+    log_success "neofetch Uninstalled Successfully"
 else
-    log_success "✅ neofetch is not installed."
+    log_info "neofetch is not installed."
 fi
 
-log_success "neofetch Uninstalled Successfully"
-pretty_info "To reinstall neofetch, run 'st system install neofetch'."
+log_info_box "To reinstall neofetch, run 'st system install neofetch'."

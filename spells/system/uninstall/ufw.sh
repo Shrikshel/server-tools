@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pretty_header "Uninstalling ufw"
+log_info_zap "🚧 Executing Command 'st system uninstall ufw'"
 
 if command -v ufw &>/dev/null; then
     log_info "🔧 Uninstalling ufw..."
@@ -10,4 +10,4 @@ else
 fi
 
 log_success "ufw Uninstalled Successfully"
-pretty_info "To reinstall ufw, run 'st system install ufw'."
+log_info_box "To reinstall ufw, run 'st system install ufw'."

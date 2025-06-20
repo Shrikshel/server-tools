@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-pretty_header "Uninstalling eza"
+log_info_zap "🚧 Executing Command 'st system uninstall eza'"
 
 if command -v eza &>/dev/null; then
     log_info "🔧 Uninstalling eza..."
     sudo apt-get remove --purge -y eza
+    log_success "eza Uninstalled Successfully"
 else
-    log_success "✅ eza is not installed."
+    log_info "eza is not installed."
 fi
 
-pretty_footer "eza Uninstalled Successfully"
-pretty_info "To reinstall eza, run 'st system install eza'."
+log_info_box "To reinstall eza, run 'st system install eza'."

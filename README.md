@@ -23,7 +23,7 @@ curl -sL https://raw.githubusercontent.com/Shrikshel/server-tools/main/scripts/u
 ## Features
 
 - **Easy system updates and upgrades**
-- **Quick install/uninstall for popular utilities** (Docker, btop, eza, neofetch, ncdu, duf, vnstats, ufw)
+- **Quick install/uninstall for popular utilities** (Docker, btop, eza, neofetch, ncdu, duf, vnstat, ufw)
 - **Colorful, readable output** for all commands
 - **System information and health checks**
 - **Disk usage and SMART status reports**

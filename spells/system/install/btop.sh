@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-pretty_header "Installing btop"
+log_info_zap "🚧 Executing Command 'st system install btop'"
 
-if ! command -v btop &>/dev/null; then
-    log_info "🔧 Installing btop..."
-    sudo apt-get update -qq
-    sudo apt-get install -y btop
+if command -v btop &>/dev/null; then
+    log_debug "btop is already installed."
 else
-    log_success "✅ btop is already installed."
+    log_info "🔧 Installing btop..."
+    sudo apt-get update && sudo apt-get install -y btop
+    log_success "btop Installed Successfully"
 fi
 
-log_success "btop Installed Successfully"
-pretty_info "To uninstall btop, run 'st system uninstall btop'."
+log_info_box "To uninstall btop, run 'st system uninstall btop'."

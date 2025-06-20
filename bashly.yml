@@ -48,8 +48,8 @@ commands:
             help: Install ncdu  
           - name: duf
             help: Install duf
-          - name: vnstats
-            help: Install vnstats 
+          - name: vnstat
+            help: Install vnstat 
           - name: ufw
             help: Install ufw
 
@@ -69,7 +69,7 @@ commands:
             help: Uninstall ncdu  
           - name: duf
             help: Uninstall duf
-          - name: vnstats
-            help: Uninstall vnstats
+          - name: vnstat
+            help: Uninstall vnstat
           - name: ufw 
             help: Uninstall ufw 

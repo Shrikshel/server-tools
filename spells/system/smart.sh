@@ -8,7 +8,7 @@ else
   FULL_OUTPUT=false
 fi
 
-green_bold "This command installs smartmontools if not already installed, scans for disks, and displays SMART information."
+log_warn "This command installs smartmontools if not already installed, scans for disks, and displays SMART information."
 
 if ! command -v smartctl &>/dev/null; then
     log_info "🔧 Installing smartmontools..."
@@ -62,4 +62,4 @@ for dev in "${devices[@]}"; do
   fi
 done
 
-echo -e "\n✅ \033[1;32mSMART report complete.\033[0m"
+log_info "✅ SMART report complete"
