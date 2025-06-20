@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-pretty_danger "Not Implemented Yet"
+log_danger_box "Not Implemented Yet"

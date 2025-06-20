@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-pretty_header "Uninstalling ncdu"
+log_info_zap "🚧 Executing Command 'st system uninstall ncdu'"
 
 if command -v ncdu &>/dev/null; then
     log_info "🔧 Uninstalling ncdu..."
     sudo apt-get remove --purge -y ncdu
+    log_success "ncdu Uninstalled Successfully"
 else
-    log_success "✅ ncdu is not installed."
+    log_info "ncdu is not installed."
 fi
 
-log_success "ncdu Uninstalled Successfully"
-
-pretty_info "To reinstall ncdu, run 'st system install ncdu'."
+log_info_box "To reinstall ncdu, run 'st system install ncdu'."

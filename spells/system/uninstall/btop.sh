@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-pretty_header "Uninstalling btop"
+log_info_zap "🚧 Executing Command 'st system uninstall btop'"
 
 if command -v btop &>/dev/null; then
-    log_info "🔧 Uninstalling btop..."
     sudo apt-get remove --purge -y btop
+    log_debug "btop Uninstalled Successfully"
 else
-    log_success "✅ btop is not installed."
+    log_info "btop is not installed."
 fi
 
-pretty_footer "btop Uninstalled Successfully"
-pretty_info "To reinstall btop, run 'st system install btop'."
+log_info_box "To reinstall btop, run 'st system install btop'."

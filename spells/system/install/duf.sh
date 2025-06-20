@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-pretty_header "Installing duf"
+log_info_zap "🚧 Executing Command 'st system install duf'"
 
 if ! command -v duf &>/dev/null; then
     log_info "🔧 Installing duf..."
     sudo apt-get update -qq
     sudo apt-get install -y duf
+    log_success "duf Installed Successfully"
 else
-    log_success "✅ duf is already installed."
+    log_info "✅ duf is already installed."
 fi
 
-log_success "duf Installed Successfully"
-pretty_info "To uninstall duf, run 'st system uninstall duf'."
+log_info_box "To uninstall duf, run 'st system uninstall duf'."

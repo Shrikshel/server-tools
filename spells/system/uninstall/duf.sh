@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-pretty_header "Uninstalling duf"
+log_info_zap "🚧 Executing Command 'st system uninstall duf'"
 
 if command -v duf &>/dev/null; then
     log_info "🔧 Uninstalling duf..."
     sudo apt-get remove --purge -y duf
+    log_success "duf Uninstalled Successfully"
 else
-    log_success "✅ duf is not installed."
+    log_info "duf is not installed."
 fi
 
-pretty_footer "duf Uninstalled Successfully"
-pretty_info "To reinstall duf, run 'st system install duf'."
+log_info_box "To reinstall duf, run 'st system install duf'."
