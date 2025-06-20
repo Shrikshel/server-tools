@@ -1,0 +1,13 @@
+name: ssh
+alias: s
+help: SSH Related Utilities
+examples:
+  - st ssh keygen
+  - st s k
+commands:
+  - name: keygen
+    help: Generate SSH Key Pair
+    alias: k
+    examples:
+      - st ssh keygen
+      - st s k
