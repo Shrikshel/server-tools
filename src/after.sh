@@ -1,1 +1,1 @@
-add_separator "<" 90 "red"
+add_separator "<" 60 "right" "green"

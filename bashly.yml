@@ -36,6 +36,8 @@ commands:
         help: Install Packages
         alias: i
         commands:
+          - name : all
+            help: Install all packages
           - name: docker
             help: Install Docker
           - name: btop
@@ -52,11 +54,14 @@ commands:
             help: Install vnstat 
           - name: ufw
             help: Install ufw
-
+          - name: bat
+            help: Install bat
       - name: uninstall
         help: Uninstall Packages
         alias: un
         commands:
+          - name: all
+            help: Uninstall all packages
           - name: docker
             help: Uninstall Docker
           - name: btop
@@ -73,3 +78,5 @@ commands:
             help: Uninstall vnstat
           - name: ufw 
             help: Uninstall ufw 
+          - name: bat
+            help: Uninstall bat
