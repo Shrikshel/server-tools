@@ -6,3 +6,6 @@ st system install ncdu
 st system install duf
 st system install ufw
 st system install bat
+st system install resticprofile
+st system install rclone
+st system install restic

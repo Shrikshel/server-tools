@@ -1,8 +1,11 @@
-st uninstall vnstat
-st uninstall doxker
-st uninstall btop
-st uninstall eza
-st uninstall ncdu
-st uninstall duf
-st uninstall ufw
-st uninstall bat
+st system uninstall vnstat
+st system uninstall docker
+st system uninstall btop
+st system uninstall eza
+st system uninstall ncdu
+st system uninstall duf
+st system uninstall ufw
+st system uninstall bat
+st system uninstall resticprofile
+st system uninstall rclone
+st system uninstall restic
