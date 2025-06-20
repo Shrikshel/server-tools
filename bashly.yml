@@ -7,3 +7,4 @@ commands:
   - import: src/config/system.yml
   - import: src/config/rclone.yml
   - import: src/config/ssh.yml
+  - import: src/config/restic.yml
