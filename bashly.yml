@@ -8,3 +8,4 @@ commands:
   - import: src/config/rclone.yml
   - import: src/config/ssh.yml
   - import: src/config/restic.yml
+  - import: src/config/docker.yml

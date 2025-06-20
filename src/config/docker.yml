@@ -1,0 +1,26 @@
+name: docker
+alias: dc
+help: Docker Related Utilities
+commands:
+  - name: compose
+    alias: c
+    help: Docker Compose Related Utilities
+    commands:
+      - name: manage-stacks
+        alias: ms
+        help: Manage Docker Compose stacks
+        examples:
+          - st dc compose manage-stacks
+          - st docker compose manage-stacks
+      - name: stop-all
+        alias: stop
+        help: Stop all running Docker containers
+        examples:
+          - st dc compose stop-all
+          - st docker compose stop-all
+      - name: start-all
+        alias: start
+        help: Start all stopped Docker containers
+        examples:
+          - st dc compose start-all
+          - st docker compose start-all
