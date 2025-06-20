@@ -1,0 +1,102 @@
+name: Build and Package ST CLI
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - 'v*.0.0'  # Only major versions manually pushed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git fetch --tags
+
+      - name: Determine if major or minor release
+        id: version
+        run: |
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            # Tag pushed (manual major release)
+            tag="${GITHUB_REF#refs/tags/}"
+            version="${tag#v}"
+            echo "Manual tag detected: $tag"
+            echo "tag=$tag" >> $GITHUB_OUTPUT
+            echo "version=$version" >> $GITHUB_OUTPUT
+            echo "type=major" >> $GITHUB_OUTPUT
+          else
+            # Auto minor release
+            latest=$(git tag --list 'v*.*.*' --sort=-v:refname | head -n 1)
+            if [[ -z "$latest" ]]; then
+              major=0
+              minor=1
+            else
+              major=$(echo "$latest" | cut -d. -f1 | sed 's/v//')
+              minor=$(echo "$latest" | cut -d. -f2)
+              patch=$(echo "$latest" | cut -d. -f3)
+              if [[ "$patch" != "0" ]]; then
+                echo "Previous patch != 0, resetting to minor bump"
+              fi
+              minor=$((minor + 1))
+            fi
+            new_version="${major}.${minor}.0"
+            new_tag="v$new_version"
+
+            echo "Auto minor release: $new_tag"
+            git tag "$new_tag"
+            git push origin "$new_tag"
+
+            echo "tag=$new_tag" >> $GITHUB_OUTPUT
+            echo "version=$new_version" >> $GITHUB_OUTPUT
+            echo "type=minor" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1
+
+      - name: Install Bashly and Generate CLI
+        run: |
+          bundle config set path vendor/bundle
+          bundle install
+          bundle exec bashly generate -e production
+
+      - name: Package as .deb
+        run: |
+          mkdir -p pkg/usr/local/bin
+          cp st pkg/usr/local/bin/st
+
+          mkdir -p pkg/DEBIAN
+          cat <<EOF > pkg/DEBIAN/control
+          Package: st
+          Version: ${{ steps.version.outputs.version }}
+          Section: utils
+          Priority: optional
+          Architecture: all
+          Maintainer: GitHub Actions <actions@github.com>
+          Description: Server Tools CLI (${{ steps.version.outputs.type }} release)
+          EOF
+
+          dpkg-deb --build pkg st_${{ steps.version.outputs.version }}.deb
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
+          files: st_*.deb
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

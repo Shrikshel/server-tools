@@ -1,0 +1,73 @@
+name: st
+help: Server Tools CLI
+version: 1.0.0
+commands:
+  - name: system
+    alias: sys
+    help: System Related Utilities
+    commands:
+      - name: update
+        help: Update System Packages
+        alias : upd
+
+      - name: upgrade
+        help: Upgrade System Packages
+        alias: upg  
+
+      - name: update-upgrade
+        help: Update & Upgrade System Packages
+        alias: updu
+
+      - name: info
+        help: Show system info
+
+      - name: smart
+        help: Show SSD SMART stats
+        flags:
+          - long: --full
+            help: Show full SMART stats
+
+      - name: disk
+        help: Show disk usage stats
+
+      - name: install
+        help: Install Packages
+        alias: i
+        commands:
+          - name: docker
+            help: Install Docker
+          - name: btop
+            help: Install btop
+          - name: eza
+            help: Install eza
+          - name: neofetch
+            help: Install neofetch
+          - name: ncdu
+            help: Install ncdu  
+          - name: duf
+            help: Install duf
+          - name: vnstats
+            help: Install vnstats 
+          - name: ufw
+            help: Install ufw
+
+      - name: uninstall
+        help: Uninstall Packages
+        alias: un
+        commands:
+          - name: docker
+            help: Uninstall Docker
+          - name: btop
+            help: Uninstall btop
+          - name: eza
+            help: Uninstall eza
+          - name: neofetch
+            help: Uninstall neofetch
+          - name: ncdu
+            help: Uninstall ncdu  
+          - name: duf
+            help: Uninstall duf
+          - name: vnstats
+            help: Uninstall vnstats
+          - name: ufw 
+            help: Uninstall ufw 
