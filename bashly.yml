@@ -2,6 +2,8 @@ name: st
 help: Server Tools CLI
 version: 1.0.0
 commands:
+  - name: completions
+    help: Generate Bash Completions
   - name: system
     alias: sys
     help: System Related Utilities
