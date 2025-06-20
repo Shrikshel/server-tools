@@ -6,7 +6,7 @@ if grep -q "alias bat='batcat'" ~/.bashrc 2>/dev/null; then
     log_info "Removed alias: bat -> batcat from ~/.bashrc"
 fi
 
-if command -v bat &>/dev/null; then
+if command -v bat &>/dev/null || command -v batcat &>/dev/null; then
     log_info "🔧 Uninstalling bat..."
     sudo apt-get remove -y bat
     log_success "bat Uninstalled Successfully"
