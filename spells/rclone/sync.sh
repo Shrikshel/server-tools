@@ -5,8 +5,8 @@ DST="${args[destination]}"
 
 # Check arguments
 if [[ -z "$SRC" || -z "$DST" ]]; then
-    log_error "Usage: rclone dry-sync <source> <destination>"
-    log_info "Example: rclone dry-sync local/path remote:bucket/path"
+    log_error "Usage: rclone sync <source> <destination>"
+    log_info "Example: rclone sync local/path remote:bucket/path"
     exit 1
 fi
 
@@ -37,25 +37,24 @@ else
     fi
 fi
 
-# Confirm before starting dry sync
+# Confirm before starting sync
 echo
-log_info "Ready to perform a dry run sync from:"
+log_info "Ready to perform sync from:"
 echo "  Source:      $SRC"
 echo "  Destination: $DST"
-read -rp "Proceed with dry run? (y/N): " CONFIRM
+read -rp "Proceed with sync? (y/N): " CONFIRM
 if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
     log_info "Aborted by user."
     exit 0
 fi
 
-# Run rclone sync with dry-run and recommended flags
-log_info "Starting rclone dry-run sync..."
+# Run rclone sync
+log_info "Starting rclone sync..."
 rclone sync "$SRC" "$DST" \
-    --dry-run \
     --progress \
     --stats=10s \
     --transfers=8 \
     --checkers=16 \
     --verbose
 
-log_info "Dry-run sync completed."
+log_info "Sync completed."

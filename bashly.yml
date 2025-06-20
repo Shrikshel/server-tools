@@ -98,6 +98,21 @@ commands:
     commands:
       - name: dry-sync
         help: Perform a dry run of rclone sync
+        examples:
+          -  st rclone dry-sync source destination
+          -  st rc dry-sync source destination
+        args:
+          - name: source
+            required: true
+            unique: false
+          - name: destination
+            required: true
+            unique: false
+      - name: sync
+        help: Perform rclone sync
+        examples:
+          -  st rclone sync source destination
+          -  st rc sync source destination
         args:
           - name: source
             required: true
