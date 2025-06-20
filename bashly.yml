@@ -100,7 +100,7 @@ commands:
         help: Perform a dry run of rclone sync
         examples:
           -  st rclone dry-sync source destination
-          -  st rc dry-sync source destination
+          -  st rc dry-sync source destination  
         args:
           - name: source
             required: true
@@ -110,9 +110,6 @@ commands:
             unique: false
       - name: sync
         help: Perform rclone sync
-        examples:
-          -  st rclone sync source destination
-          -  st rc sync source destination
         args:
           - name: source
             required: true
@@ -120,3 +117,16 @@ commands:
           - name: destination
             required: true
             unique: false
+  - name: ssh
+    alias: s
+    help: SSH Related Utilities
+    examples:
+      - st ssh keygen
+      - st s k
+    commands:
+      - name: keygen
+        help: Generate SSH Key Pair
+        alias: k
+        examples:
+          - st ssh keygen
+          - st s k
