@@ -56,6 +56,12 @@ commands:
             help: Install ufw
           - name: bat
             help: Install bat
+          - name: rclone
+            help: Install rclone
+          - name: restic
+            help: Install restic
+          - name: resticprofile
+            help: Install restic profile
       - name: uninstall
         help: Uninstall Packages
         alias: un
@@ -80,3 +86,22 @@ commands:
             help: Uninstall ufw 
           - name: bat
             help: Uninstall bat
+          - name: rclone
+            help: Uninstall rclone
+          - name: restic
+            help: Uninstall restic
+          - name: resticprofile
+            help: Uninstall restic profile
+  - name: rclone
+    alias: rc
+    help: Rclone Related Utilities
+    commands:
+      - name: dry-sync
+        help: Perform a dry run of rclone sync
+        args:
+          - name: source
+            required: true
+            unique: false
+          - name: destination
+            required: true
+            unique: false
