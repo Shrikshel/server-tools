@@ -1,7 +1,5 @@
 #!/bin/bash
 
-inspect_args
-
 # Source the shared log functions
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/../../src/lib/log.sh"
