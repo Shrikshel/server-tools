@@ -23,4 +23,4 @@ jobs:
           keep-old-minor-releases-by: 'major'
           keep-old-minor-releases-count: 5 # Keep 5 minor versions within each major
           remove-tags: true # Remove tags associated with *deleted releases*
-          # dry-run: true # KEEP THIS for current testing
+          dry-run: true # KEEP THIS for current testing
