@@ -76,58 +76,97 @@ st [COMMAND] [SUBCOMMAND] [OPTIONS]
 
 ---
 
-## Command Aliases
+## Command Helper
 
-| Alias         | Full Command                        | Description                        |
-|---------------|-------------------------------------|------------------------------------|
-| st dc         | st docker                          | Docker Related Utilities           |
-| st dc c       | st docker compose                  | Docker Compose Related Utilities   |
-| st dc c ms    | st docker compose manage-stacks    | Manage Docker Compose stacks       |
-| st dc c stop  | st docker compose stop-all         | Stop all running Docker containers |
-| st dc c start | st docker compose start-all        | Start all stopped Docker containers|
-| st rc         | st rclone                          | Rclone Related Utilities           |
-| st rc ds      | st rclone dry-sync                 | Perform a dry run of rclone sync   |
-| st rc s       | st rclone sync                     | Perform rclone sync                |
-| st rs         | st restic                          | Restic Related Utilities           |
-| st s          | st ssh                             | SSH Related Utilities              |
-| st s k        | st ssh keygen                      | Generate SSH Key Pair              |
-| st conf       | st config                          | Configs Related to Server Tools    |
-| st conf s     | st config show                     | System Configs                     |
-| st conf e     | st config edit                     | Edit System Configs                |
-| st conf v     | st config verify                   | Verify System Configs              |
-| st conf so    | st config source                   | Source Configs                     |
-| st sys        | st system                          | System Related Utilities           |
-| st sys upd    | st system update                   | Update System Packages             |
-| st sys upg    | st system upgrade                  | Upgrade System Packages            |
-| st sys updu   | st system update-upgrade           | Update & Upgrade System Packages   |
-| st sys i      | st system install                  | Install Packages                   |
-| st sys un     | st system uninstall                | Uninstall Packages                 |
-| st sys i all  | st system install all              | Install all packages               |
-| st sys i docker | st system install docker         | Install Docker                     |
-| st sys i btop | st system install btop             | Install btop                       |
-| st sys i eza  | st system install eza              | Install eza                        |
-| st sys i neofetch | st system install neofetch     | Install neofetch                   |
-| st sys i ncdu | st system install ncdu             | Install ncdu                       |
-| st sys i duf  | st system install duf              | Install duf                        |
-| st sys i vnstat | st system install vnstat         | Install vnstat                     |
-| st sys i ufw  | st system install ufw              | Install ufw                        |
-| st sys i bat  | st system install bat              | Install bat                        |
-| st sys i rclone | st system install rclone         | Install rclone                     |
-| st sys i restic | st system install restic         | Install restic                     |
-| st sys i resticprofile | st system install resticprofile | Install restic profile      |
-| st sys un all | st system uninstall all            | Uninstall all packages             |
-| st sys un docker | st system uninstall docker      | Uninstall Docker                   |
-| st sys un btop | st system uninstall btop          | Uninstall btop                     |
-| st sys un eza | st system uninstall eza            | Uninstall eza                      |
-| st sys un neofetch | st system uninstall neofetch  | Uninstall neofetch                 |
-| st sys un ncdu | st system uninstall ncdu          | Uninstall ncdu                     |
-| st sys un duf | st system uninstall duf            | Uninstall duf                      |
-| st sys un vnstat | st system uninstall vnstat      | Uninstall vnstat                   |
-| st sys un ufw | st system uninstall ufw            | Uninstall ufw                      |
-| st sys un bat | st system uninstall bat            | Uninstall bat                      |
-| st sys un rclone | st system uninstall rclone      | Uninstall rclone                   |
-| st sys un restic | st system uninstall restic      | Uninstall restic                   |
-| st sys un resticprofile | st system uninstall resticprofile | Uninstall restic profile   |
+### st docker
+
+Docker management commands for containers and Compose stacks. Use `st docker` for all Docker-related operations, including starting, stopping, and managing stacks.
+
+| Description                        | Full Command                      | Alias   |
+|------------------------------------|-----------------------------------|---------|
+| Docker Related Utilities           | st docker                         | st dc   |
+| Docker Compose Related Utilities   | st docker compose                 | st dc c |
+| Manage Docker Compose stacks       | st docker compose manage-stacks   | st dc c ms |
+| Stop all running Docker containers | st docker compose stop-all        | st dc c stop |
+| Start all stopped Docker containers| st docker compose start-all       | st dc c start |
+
+### st rclone
+
+Rclone utilities for syncing and managing files across cloud and local storage. Use `st rclone` for all rclone operations.
+
+| Description                        | Full Command                      | Alias   |
+|------------------------------------|-----------------------------------|---------|
+| Rclone Related Utilities           | st rclone                         | st rc   |
+| Perform a dry run of rclone sync   | st rclone dry-sync                | st rc ds|
+| Perform rclone sync                | st rclone sync                    | st rc s |
+
+### st restic
+
+Restic backup and restore utilities. Use `st restic` for backup management and restoration tasks.
+
+| Description                        | Full Command                      | Alias   |
+|------------------------------------|-----------------------------------|---------|
+| Restic Related Utilities           | st restic                         | st rs   |
+
+### st ssh
+
+SSH key and connection management. Use `st ssh` to generate keys and manage SSH-related tasks.
+
+| Description                        | Full Command                      | Alias   |
+|------------------------------------|-----------------------------------|---------|
+| SSH Related Utilities              | st ssh                            | st s    |
+| Generate SSH Key Pair              | st ssh keygen                     | st s k  |
+
+### st config
+
+Configuration management for server tools. Use `st config` to view, edit, verify, or source configuration files.
+
+| Description                        | Full Command                      | Alias   |
+|------------------------------------|-----------------------------------|---------|
+| Configs Related to Server Tools    | st config                         | st conf |
+| System Configs                     | st config show                    | st conf s |
+| Edit System Configs                | st config edit                    | st conf e |
+| Verify System Configs              | st config verify                  | st conf v |
+| Source Configs                     | st config source                  | st conf so |
+
+### st system
+
+System management utilities for updates, upgrades, package installation, and more. Use `st system` for all system-level operations.
+
+| Description                        | Full Command                      | Alias   |
+|------------------------------------|-----------------------------------|---------|
+| System Related Utilities           | st system                         | st sys  |
+| Update System Packages             | st system update                  | st sys upd |
+| Upgrade System Packages            | st system upgrade                 | st sys upg |
+| Update & Upgrade System Packages   | st system update-upgrade          | st sys updu |
+| Install Packages                   | st system install                 | st sys i |
+| Uninstall Packages                 | st system uninstall               | st sys un |
+| Install all packages               | st system install all             | st sys i all |
+| Install Docker                     | st system install docker          | st sys i docker |
+| Install btop                       | st system install btop            | st sys i btop |
+| Install eza                        | st system install eza             | st sys i eza |
+| Install neofetch                   | st system install neofetch        | st sys i neofetch |
+| Install ncdu                       | st system install ncdu            | st sys i ncdu |
+| Install duf                        | st system install duf             | st sys i duf |
+| Install vnstat                     | st system install vnstat          | st sys i vnstat |
+| Install ufw                        | st system install ufw             | st sys i ufw |
+| Install bat                        | st system install bat             | st sys i bat |
+| Install rclone                     | st system install rclone          | st sys i rclone |
+| Install restic                     | st system install restic          | st sys i restic |
+| Install restic profile             | st system install resticprofile   | st sys i resticprofile |
+| Uninstall all packages             | st system uninstall all           | st sys un all |
+| Uninstall Docker                   | st system uninstall docker        | st sys un docker |
+| Uninstall btop                     | st system uninstall btop          | st sys un btop |
+| Uninstall eza                      | st system uninstall eza           | st sys un eza |
+| Uninstall neofetch                 | st system uninstall neofetch      | st sys un neofetch |
+| Uninstall ncdu                     | st system uninstall ncdu          | st sys un ncdu |
+| Uninstall duf                      | st system uninstall duf           | st sys un duf |
+| Uninstall vnstat                   | st system uninstall vnstat        | st sys un vnstat |
+| Uninstall ufw                      | st system uninstall ufw           | st sys un ufw |
+| Uninstall bat                      | st system uninstall bat           | st sys un bat |
+| Uninstall rclone                   | st system uninstall rclone        | st sys un rclone |
+| Uninstall restic                   | st system uninstall restic        | st sys un restic |
+| Uninstall restic profile           | st system uninstall resticprofile | st sys un resticprofile |
 
 ---
 
