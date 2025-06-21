@@ -10,20 +10,23 @@ A modern, user-friendly command-line tool for managing headless Ubuntu servers, 
 
 ## Table of Contents
 
-- [Installation & Uninstallation](#installation--uninstallation)
-- [Features](#features)
-- [Usage](#usage)
-- [Command Helper](#command-helper)
-  - [st docker](#st-docker)
-  - [st rclone](#st-rclone)
-  - [st restic](#st-restic)
-  - [st ssh](#st-ssh)
-  - [st config](#st-config)
-  - [st system](#st-system)
-- [Configuration](#configuration)
-- [Requirements](#requirements)
-- [Why use st?](#why-use-st)
-- [License](#license)
+- [Server Tools (`st`)](#server-tools-st)
+  - [Table of Contents](#table-of-contents)
+  - [Installation \& Uninstallation](#installation--uninstallation)
+  - [Features](#features)
+  - [Usage](#usage)
+    - [Example Commands](#example-commands)
+  - [Command Helper](#command-helper)
+    - [st docker](#st-docker)
+    - [st rclone](#st-rclone)
+    - [st restic](#st-restic)
+    - [st ssh](#st-ssh)
+    - [st config](#st-config)
+    - [st system](#st-system)
+  - [Configuration](#configuration)
+  - [Requirements](#requirements)
+  - [Why use st?](#why-use-st)
+  - [License](#license)
 
 ---
 
@@ -83,80 +86,81 @@ st system uninstall btop    # Uninstall btop
 
 Docker management commands for containers and Compose stacks:
 
-| Description                        | Full Command                      | Alias         |
-|------------------------------------|-----------------------------------|---------------|
-| Docker Related Utilities           | `st docker`                       | `st dc`       |
-| Docker Compose Related Utilities   | `st docker compose`               | `st dc c`     |
-| Manage Docker Compose stacks       | `st docker compose manage-stacks` | `st dc c ms`  |
-| Stop all running containers        | `st docker compose stop-all`      | `st dc c stop`|
-| Start all stopped containers       | `st docker compose start-all`     | `st dc c start`|
+| Description                      | Full Command                      | Alias           |
+| -------------------------------- | --------------------------------- | --------------- |
+| Docker Related Utilities         | `st docker`                       | `st dc`         |
+| Docker Compose Related Utilities | `st docker compose`               | `st dc c`       |
+| Manage Docker Compose stacks     | `st docker compose manage-stacks` | `st dc c ms`    |
+| Stop all running containers      | `st docker compose stop-all`      | `st dc c stop`  |
+| Start all stopped containers     | `st docker compose start-all`     | `st dc c start` |
 
 ### st rclone
 
 Rclone utilities for syncing and managing cloud/local storage:
 
-| Description                     | Full Command           | Alias      |
-|---------------------------------|------------------------|------------|
-| Rclone Related Utilities        | `st rclone`            | `st rc`    |
-| Dry run of rclone sync          | `st rclone dry-sync`   | `st rc ds` |
-| Perform rclone sync             | `st rclone sync`       | `st rc s`  |
+| Description              | Full Command         | Alias      |
+| ------------------------ | -------------------- | ---------- |
+| Rclone Related Utilities | `st rclone`          | `st rc`    |
+| Dry run of rclone sync   | `st rclone dry-sync` | `st rc ds` |
+| Perform rclone sync      | `st rclone sync`     | `st rc s`  |
 
 ### st restic
 
 Restic backup and restore utilities:
 
-| Description             | Full Command      | Alias    |
-|-------------------------|-------------------|----------|
-| Restic Related Utilities| `st restic`       | `st rs`  |
+| Description              | Full Command | Alias   |
+| ------------------------ | ------------ | ------- |
+| Restic Related Utilities | `st restic`  | `st rs` |
 
 ### st ssh
 
 SSH key and connection management:
 
-| Description            | Full Command       | Alias   |
-|------------------------|--------------------|---------|
-| SSH Related Utilities  | `st ssh`           | `st s`  |
-| Generate SSH Key Pair  | `st ssh keygen`    | `st s k`|
+| Description           | Full Command    | Alias    |
+| --------------------- | --------------- | -------- |
+| SSH Related Utilities | `st ssh`        | `st s`   |
+| Generate SSH Key Pair | `st ssh keygen` | `st s k` |
 
 ### st config
 
 Manage server tool configuration files:
 
-| Description               | Full Command          | Alias      |
-|---------------------------|-----------------------|------------|
-| Config Tools              | `st config`           | `st conf`  |
-| Show Config               | `st config show`      | `st conf s`|
-| Edit Config               | `st config edit`      | `st conf e`|
-| Verify Config             | `st config verify`    | `st conf v`|
-| Source Config             | `st config source`    | `st conf so`|
+| Description   | Full Command       | Alias        |
+| ------------- | ------------------ | ------------ |
+| Config Tools  | `st config`        | `st conf`    |
+| Show Config   | `st config show`   | `st conf s`  |
+| Edit Config   | `st config edit`   | `st conf e`  |
+| Verify Config | `st config verify` | `st conf v`  |
+| Source Config | `st config source` | `st conf so` |
 
 ### st system
 
 System management utilities for packages, updates, and diagnostics:
 
-| Description                     | Full Command                      | Alias         |
-|----------------------------------|-----------------------------------|---------------|
-| System Utilities                | `st system`                       | `st sys`      |
-| Update System Packages          | `st system update`                | `st sys upd`  |
-| Upgrade System Packages         | `st system upgrade`               | `st sys upg`  |
-| Update & Upgrade Packages       | `st system update-upgrade`        | `st sys updu` |
-| Install Packages                | `st system install`               | `st sys i`    |
-| Uninstall Packages              | `st system uninstall`             | `st sys un`   |
-| Install All Packages            | `st system install all`           |               |
-| Uninstall All Packages          | `st system uninstall all`         |               |
-| Install Docker                  | `st system install docker`        |               |
-| Install btop                    | `st system install btop`          |               |
-| Install eza                     | `st system install eza`           |               |
-| Install neofetch                | `st system install neofetch`      |               |
-| Install ncdu                    | `st system install ncdu`          |               |
-| Install duf                     | `st system install duf`           |               |
-| Install vnstat                  | `st system install vnstat`        |               |
-| Install ufw                     | `st system install ufw`           |               |
-| Install bat                     | `st system install bat`           |               |
-| Install rclone                  | `st system install rclone`        |               |
-| Install restic                  | `st system install restic`        |               |
-| Install resticprofile           | `st system install resticprofile` |               |
-| Uninstall the above             | `st system uninstall <package>`   |               |
+| Description               | Full Command                      | Alias                   |
+| ------------------------- | --------------------------------- | ----------------------- |
+| System Utilities          | `st system`                       | `st sys`                |
+| Update System Packages    | `st system update`                | `st sys upd`            |
+| Upgrade System Packages   | `st system upgrade`               | `st sys upg`            |
+| Update & Upgrade Packages | `st system update-upgrade`        | `st sys updu`           |
+| Install Packages          | `st system install`               | `st sys i`              |
+| Uninstall Packages        | `st system uninstall`             | `st sys un`             |
+| Install All Packages      | `st system install all`           | `st sys i all`          |
+| Uninstall All Packages    | `st system uninstall all`         | `st sys un all`         |
+| Install Docker            | `st system install docker`        | `st sys i docker`       |
+| Install btop              | `st system install btop`          | `st sys i btop`         |
+| Install eza               | `st system install eza`           | `st sys i eza`          |
+| Install neofetch          | `st system install neofetch`      | `st sys i neofetch`     |
+| Install ncdu              | `st system install ncdu`          | `st sys i ncdu`         |
+| Install duf               | `st system install duf`           | `st sys i duf`          |
+| Install vnstat            | `st system install vnstat`        | `st sys i vnstat`       |
+| Install ufw               | `st system install ufw`           | `st sys i ufw`          |
+| Install bat               | `st system install bat`           | `st sys i bat`          |
+| Install rclone            | `st system install rclone`        | `st sys i rclone`       |
+| Install restic            | `st system install restic`        | `st sys i restic`       |
+| Install resticprofile     | `st system install resticprofile` | `st sys i rsticprofile` |
+| Uninstall the above       | `st system uninstall <package>`   | `st sys un <pkg>`       |
+
 
 ---
 
