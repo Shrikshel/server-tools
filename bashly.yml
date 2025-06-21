@@ -2,10 +2,11 @@ name: st
 help: Server Tools CLI
 version: 1.0.0
 commands:
-  - name: completions
-    help: Generate Bash Completions
   - import: src/config/system.yml
   - import: src/config/rclone.yml
   - import: src/config/ssh.yml
   - import: src/config/restic.yml
   - import: src/config/docker.yml
+  - import: src/config/st-config.yml
+  - name: completions
+    help: Generate Bash Completions

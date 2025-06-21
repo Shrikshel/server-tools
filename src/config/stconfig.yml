@@ -1,0 +1,5 @@
+name: config
+help: Configs Releted to Server Tools
+commands:
+  - name: show
+    help: System Configs
