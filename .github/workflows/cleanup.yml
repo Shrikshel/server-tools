@@ -1,0 +1,26 @@
+name: Cleanup Old Releases (Semantic Versioning)
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Weekly, adjust as needed
+  workflow_dispatch:
+
+jobs:
+  delete_old_releases:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Make sure this is present and correct
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Delete older releases based on SemVer rules
+        uses: Nats-ji/delete-old-releases@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          keep-old-minor-releases: true
+          keep-old-minor-releases-by: 'major'
+          keep-old-minor-releases-count: 5 # Keep 5 minor versions within each major
+          remove-tags: true # Remove tags associated with *deleted releases*
+          # dry-run: true # KEEP THIS for current testing
