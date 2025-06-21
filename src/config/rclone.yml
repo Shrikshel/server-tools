@@ -3,6 +3,7 @@ alias: rc
 help: Rclone Related Utilities
 commands:
   - name: dry-sync
+    alias: ds
     help: Perform a dry run of rclone sync
     examples:
       -  st rclone dry-sync source destination
@@ -15,6 +16,7 @@ commands:
         required: true
         unique: false
   - name: sync
+    alias: s
     help: Perform rclone sync
     args:
       - name: source

@@ -76,13 +76,80 @@ st [COMMAND] [SUBCOMMAND] [OPTIONS]
 
 ---
 
+## Command Aliases
+
+| Alias         | Full Command                        | Description                        |
+|---------------|-------------------------------------|------------------------------------|
+| st dc         | st docker                          | Docker Related Utilities           |
+| st dc c       | st docker compose                  | Docker Compose Related Utilities   |
+| st dc c ms    | st docker compose manage-stacks    | Manage Docker Compose stacks       |
+| st dc c stop  | st docker compose stop-all         | Stop all running Docker containers |
+| st dc c start | st docker compose start-all        | Start all stopped Docker containers|
+| st rc         | st rclone                          | Rclone Related Utilities           |
+| st rc ds      | st rclone dry-sync                 | Perform a dry run of rclone sync   |
+| st rc s       | st rclone sync                     | Perform rclone sync                |
+| st rs         | st restic                          | Restic Related Utilities           |
+| st s          | st ssh                             | SSH Related Utilities              |
+| st s k        | st ssh keygen                      | Generate SSH Key Pair              |
+| st conf       | st config                          | Configs Related to Server Tools    |
+| st conf s     | st config show                     | System Configs                     |
+| st conf e     | st config edit                     | Edit System Configs                |
+| st conf v     | st config verify                   | Verify System Configs              |
+| st conf so    | st config source                   | Source Configs                     |
+| st sys        | st system                          | System Related Utilities           |
+| st sys upd    | st system update                   | Update System Packages             |
+| st sys upg    | st system upgrade                  | Upgrade System Packages            |
+| st sys updu   | st system update-upgrade           | Update & Upgrade System Packages   |
+| st sys i      | st system install                  | Install Packages                   |
+| st sys un     | st system uninstall                | Uninstall Packages                 |
+| st sys i all  | st system install all              | Install all packages               |
+| st sys i docker | st system install docker         | Install Docker                     |
+| st sys i btop | st system install btop             | Install btop                       |
+| st sys i eza  | st system install eza              | Install eza                        |
+| st sys i neofetch | st system install neofetch     | Install neofetch                   |
+| st sys i ncdu | st system install ncdu             | Install ncdu                       |
+| st sys i duf  | st system install duf              | Install duf                        |
+| st sys i vnstat | st system install vnstat         | Install vnstat                     |
+| st sys i ufw  | st system install ufw              | Install ufw                        |
+| st sys i bat  | st system install bat              | Install bat                        |
+| st sys i rclone | st system install rclone         | Install rclone                     |
+| st sys i restic | st system install restic         | Install restic                     |
+| st sys i resticprofile | st system install resticprofile | Install restic profile      |
+| st sys un all | st system uninstall all            | Uninstall all packages             |
+| st sys un docker | st system uninstall docker      | Uninstall Docker                   |
+| st sys un btop | st system uninstall btop          | Uninstall btop                     |
+| st sys un eza | st system uninstall eza            | Uninstall eza                      |
+| st sys un neofetch | st system uninstall neofetch  | Uninstall neofetch                 |
+| st sys un ncdu | st system uninstall ncdu          | Uninstall ncdu                     |
+| st sys un duf | st system uninstall duf            | Uninstall duf                      |
+| st sys un vnstat | st system uninstall vnstat      | Uninstall vnstat                   |
+| st sys un ufw | st system uninstall ufw            | Uninstall ufw                      |
+| st sys un bat | st system uninstall bat            | Uninstall bat                      |
+| st sys un rclone | st system uninstall rclone      | Uninstall rclone                   |
+| st sys un restic | st system uninstall restic      | Uninstall restic                   |
+| st sys un resticprofile | st system uninstall resticprofile | Uninstall restic profile   |
+
+---
+
 ## Configuration
 
-`st` can be configured via a config file. By default, it looks for `~/.config/.bashly.conf`. You can override this by setting the `ST_CONFIG_FILE` environment variable.
+`st` can be configured via a config file. By default, it looks for `$HOME/.config/.st.conf`. You can override this by setting the `ST_CONFIG_FILE` environment variable.
+
+To edit the config file with nano:
+
+```bash
+nano $HOME/.config/.st.conf
+```
+
+Or, if you use a custom config location:
+
+```bash
+nano "$ST_CONFIG_FILE"
+```
 
 Example config:
 ```bash
-# ~/.config/.bashly.conf
+# $HOME/.config/.st.conf
 NO_COLOR=1  # Disable colored output
 ```
 

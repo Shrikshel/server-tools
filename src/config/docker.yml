@@ -12,15 +12,21 @@ commands:
         examples:
           - st dc compose manage-stacks
           - st docker compose manage-stacks
+          - st dc c manage-stacks
+          - st dc c ms
       - name: stop-all
         alias: stop
         help: Stop all running Docker containers
         examples:
           - st dc compose stop-all
           - st docker compose stop-all
+          - st dc c stop-all
+          - st dc c stop
       - name: start-all
         alias: start
         help: Start all stopped Docker containers
         examples:
           - st dc compose start-all
           - st docker compose start-all
+          - st dc c start-all
+          - st dc c start
