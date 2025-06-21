@@ -97,6 +97,30 @@ jobs:
         with:
           tag_name: ${{ steps.version.outputs.tag }}
           name: ${{ steps.version.outputs.tag }}
+          generate_release_notes: true
           files: st_*.deb
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate Markdown Documentation
+        run: |
+          mkdir -p docs_output
+          # This generates a single README.md for the entire CLI
+          bashly render :markdown docs_output/README.md
+          # If you have specific commands and want separate files (Bashly v0.8+):
+          # mkdir -p docs_output/commands
+          # bashly render :markdown:commands docs_output/commands/
+          # bashly render :markdown:completion docs_output/bash_completion.sh
+        working-directory: . # Ensure bashly.yml is found here
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5 # Recommended action for Pages setup
+
+      - name: Upload Artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs_output' # The directory containing your generated documentation
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # The actual deployment action
