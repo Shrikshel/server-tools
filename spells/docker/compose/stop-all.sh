@@ -13,7 +13,8 @@ log_success "All required environment variables are set."
 
 echo
 
-PARENT_DIR="${1:-/home/ubuntu/homelab}"
+PARENT_DIR="$ST_PROD_STACKS_PATH"
+
 echo "🔍 Searching for Docker stacks in: $PARENT_DIR"
 errors=0
 for DIR in "$PARENT_DIR"/*/; do
