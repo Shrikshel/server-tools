@@ -80,10 +80,16 @@ while true; do
       selected_path="${dirs[$index]}"
       selected_app=$(basename "$selected_path")
 
+      echo
       echo "Selected: $selected_app"
       echo "1) Start"
       echo "2) Stop"
-      read -p "Enter 1 for Start or 2 for Stop: " action_input
+      echo "3) Logs"
+      echo "4) Restart"
+      echo "5) Status"
+      echo "6) Show .env"
+      echo "7) Shell into container"
+      read -p "Enter action number: " action_input
 
       case "$action_input" in
         1)
@@ -93,6 +99,36 @@ while true; do
         2)
           echo "Stopping $selected_app..."
           cd "$selected_path" && docker compose down
+          ;;
+        3)
+          echo "Showing logs for $selected_app..."
+          cd "$selected_path" && docker compose logs -f
+          ;;
+        4)
+          echo "Restarting $selected_app..."
+          cd "$selected_path" && docker compose restart
+          ;;
+        5)
+          echo "Status for $selected_app:"
+          cd "$selected_path" && docker compose ps
+          ;;
+        6)
+          if [[ -f "$selected_path/.env" ]]; then
+            echo ".env file for $selected_app:"
+            echo "-------------------------------"
+            cat "$selected_path/.env"
+            echo "-------------------------------"
+          else
+            echo "No .env file found for $selected_app"
+          fi
+          ;;
+        7)
+          cd "$selected_path"
+          echo "Available services:"
+          docker compose config --services
+          read -p "Enter service name to shell into: " service
+          echo "Opening bash shell in $service..."
+          docker compose exec "$service" bash || echo "Failed to shell into $service"
           ;;
         *)
           echo "Invalid action selected."
