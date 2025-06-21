@@ -1,9 +1,7 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Shrikshel/server-tools/main/assets/logo.svg" width="200" alt="Server Tools Logo"/>
+  <img src="https://raw.githubusercontent.com/Shrikshel/server-tools/main/assets/logo.png" width="200" alt="Server Tools Logo"/>
 </p>
-<p align="center">
-  <img src="https://github.com/YOUR_USERNAME/Shrikshel/server-tools/main/assets/logo.svg" alt="Server Tools Logo" width="200"/>
-</p>
+
 # Server Tools (`st`)
 
 A modern, user-friendly command-line tool for managing headless Ubuntu servers, powered by [Bashly](https://bashly.dannyb.co/). The `st` CLI provides a suite of commands to simplify common server administration tasks, including package management, system info, disk and SMART stats, and more.
