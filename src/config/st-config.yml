@@ -1,5 +1,16 @@
 name: config
+alias: conf
 help: Configs Releted to Server Tools
 commands:
   - name: show
+    alias: s
     help: System Configs
+  - name: edit
+    alias: e
+    help: Edit System Configs
+  - name: verify
+    alias: v
+    help: Verify System Configs
+  - name: source
+    alias: so
+    help: Source Configs
