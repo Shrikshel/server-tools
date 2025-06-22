@@ -31,3 +31,14 @@ check_required_env_vars() {
     exit 1
   fi
 }
+
+
+chceck_command_exists() {
+  local cmd="$1"
+  if ! command -v "$cmd" &> /dev/null; then
+    log_error "Command '$cmd' is not installed."
+    log_info "Please install it to continue."
+    exit 1
+  fi
+  log_success "Command '$cmd' is installed."
+}

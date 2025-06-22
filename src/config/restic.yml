@@ -1,3 +1,22 @@
 name: restic
 alias: rs
 help: Restic Related Utilities
+commands:
+  - name: snapshots
+    alias: snap
+    help: List Restic Snapshots
+    flags:
+      - long: --full
+        short: -f
+        help: Output full snapshot details
+  - name: check
+    alias: chk
+    help: Check Restic Repository for Errors
+  - name: restore
+    alias: rst
+    help: Restore from Restic Snapshot. Pass snapshot ID and target directory.
+    args:
+      - name: snapshot
+        help: Snapshot ID to restore from
+      - name: target
+        help: Target directory to restore to
