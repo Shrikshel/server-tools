@@ -4,16 +4,32 @@
 
 # Server Tools (`st`)
 
-A modern, user-friendly command-line tool for managing headless Ubuntu servers, powered by [Bashly](https://bashly.dannyb.co/). The `st` CLI provides a suite of commands to simplify common server administration tasks, including package management, system info, disk and SMART stats, and more.
+`st` is a lightweight, modular CLI tool built for managing headless Ubuntu servers with ease — updates, installs, backups, and diagnostics, all in one place.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Shell](https://img.shields.io/badge/made%20with-bash-1f425f.svg)](https://bash.sh)
 
 ---
+
+## Features
+
+- 🔄 Easy system updates and upgrades
+- 📦 Quick install/uninstall for popular packages (Docker, btop, etc.)
+- 🎨 Colorful, readable output for all commands
+- 🧾 System info and health checks
+- 💾 Disk usage and SMART status
+- 🧩 Modular and extensible command structure
+
+---
+
 
 ## Table of Contents
 
 - [Server Tools (`st`)](#server-tools-st)
-  - [Table of Contents](#table-of-contents)
-  - [Installation \& Uninstallation](#installation--uninstallation)
   - [Features](#features)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Features](#features-1)
   - [Documentation](#documentation)
   - [Usage](#usage)
     - [Example Commands](#example-commands)
@@ -33,9 +49,7 @@ A modern, user-friendly command-line tool for managing headless Ubuntu servers, 
 
 ---
 
-## Installation & Uninstallation
-
-To install `st` and all supporting scripts, run:
+## Installation
 
 ```bash
 curl -sL https://raw.githubusercontent.com/Shrikshel/server-tools/main/scripts/install.sh | bash
@@ -46,6 +60,8 @@ To uninstall:
 ```bash
 curl -sL https://raw.githubusercontent.com/Shrikshel/server-tools/main/scripts/uninstall.sh | bash
 ```
+
+📦 `.deb` package and GitHub Releases coming soon!
 
 ---
 
@@ -107,33 +123,33 @@ Docker management commands for containers and Compose stacks:
 
 Rclone utilities for syncing and managing cloud/local storage:
 
-| Description              | Full Command                 | Alias        |
-| ------------------------ | ---------------------------- | ------------ |
-| Rclone Related Utilities | `st rclone`                  | `st rc`      |
-| Dry run of rclone sync   | `st rclone dry-sync`         | `st rc ds`   |
-| Perform rclone sync      | `st rclone sync`             | `st rc s`    |
+| Description              | Full Command         | Alias      |
+| ------------------------ | -------------------- | ---------- |
+| Rclone Related Utilities | `st rclone`          | `st rc`    |
+| Dry run of rclone sync   | `st rclone dry-sync` | `st rc ds` |
+| Perform rclone sync      | `st rclone sync`     | `st rc s`  |
 
 ### st restic
 
 Restic backup and restore utilities:
 
-| Description                  | Full Command                        | Alias         |
-| ---------------------------- | ----------------------------------- | ------------- |
-| Restic Related Utilities     | `st restic`                         | `st rs`       |
-| List Restic Snapshots        | `st restic snapshots`               | `st rs snap`  |
-| List Snapshots (full)        | `st restic snapshots --full`        |               |
-| Check Restic Repository      | `st restic check`                   | `st rs chk`   |
-| Restore from Snapshot        | `st restic restore <id> <target>`   | `st rs rst`   |
+| Description              | Full Command                      | Alias        |
+| ------------------------ | --------------------------------- | ------------ |
+| Restic Related Utilities | `st restic`                       | `st rs`      |
+| List Restic Snapshots    | `st restic snapshots`             | `st rs snap` |
+| List Snapshots (full)    | `st restic snapshots --full`      |              |
+| Check Restic Repository  | `st restic check`                 | `st rs chk`  |
+| Restore from Snapshot    | `st restic restore <id> <target>` | `st rs rst`  |
 
 ### st resticprofile
 
 Restic Profile Management:
 
-| Description                      | Full Command                          | Alias         |
-| -------------------------------- | ------------------------------------- | ------------- |
-| Restic Profile Management        | `st resticprofile`                    | `st rp`       |
-| Show Restic Profile Details      | `st resticprofile show <profile>`     | `st rp s`     |
-| List Snapshots in Restic Profile | `st resticprofile snapshots <profile>`| `st rp ss`    |
+| Description                      | Full Command                           | Alias      |
+| -------------------------------- | -------------------------------------- | ---------- |
+| Restic Profile Management        | `st resticprofile`                     | `st rp`    |
+| Show Restic Profile Details      | `st resticprofile show <profile>`      | `st rp s`  |
+| List Snapshots in Restic Profile | `st resticprofile snapshots <profile>` | `st rp ss` |
 
 ### st ssh
 
@@ -160,46 +176,46 @@ Manage server tool configuration files:
 
 System management utilities for packages, updates, and diagnostics:
 
-| Description               | Full Command                      | Alias                   |
-| ------------------------- | --------------------------------- | ----------------------- |
-| System Utilities          | `st system`                       | `st sys`                |
-| Update System Packages    | `st system update`                | `st sys upd`            |
-| Upgrade System Packages   | `st system upgrade`               | `st sys upg`            |
-| Update & Upgrade Packages | `st system update-upgrade`        | `st sys updu`           |
-| Show system info          | `st system info`                  |                         |
-| Show SSD SMART stats      | `st system smart`                 |                         |
-| Show disk usage stats     | `st system disk`                  |                         |
-| Install Packages          | `st system install`               | `st sys i`              |
-| Uninstall Packages        | `st system uninstall`             | `st sys un`             |
-| Install All Packages      | `st system install all`           | `st sys i all`          |
-| Uninstall All Packages    | `st system uninstall all`         | `st sys un all`         |
-| Install Docker            | `st system install docker`        | `st sys i docker`       |
-| Install btop              | `st system install btop`          | `st sys i btop`         |
-| Install eza               | `st system install eza`           | `st sys i eza`          |
-| Install neofetch          | `st system install neofetch`      | `st sys i neofetch`     |
-| Install ncdu              | `st system install ncdu`          | `st sys i ncdu`         |
-| Install duf               | `st system install duf`           | `st sys i duf`          |
-| Install vnstat            | `st system install vnstat`        | `st sys i vnstat`       |
-| Install ufw               | `st system install ufw`           | `st sys i ufw`          |
-| Install bat               | `st system install bat`           | `st sys i bat`          |
-| Install rclone            | `st system install rclone`        | `st sys i rclone`       |
-| Install restic            | `st system install restic`        | `st sys i restic`       |
-| Install resticprofile     | `st system install resticprofile` | `st sys i resticprofile`|
-| Uninstall the above       | `st system uninstall <package>`   | `st sys un <pkg>`       |
+| Description               | Full Command                      | Alias                    |
+| ------------------------- | --------------------------------- | ------------------------ |
+| System Utilities          | `st system`                       | `st sys`                 |
+| Update System Packages    | `st system update`                | `st sys upd`             |
+| Upgrade System Packages   | `st system upgrade`               | `st sys upg`             |
+| Update & Upgrade Packages | `st system update-upgrade`        | `st sys updu`            |
+| Show system info          | `st system info`                  | `st sys info`            |
+| Show SSD SMART stats      | `st system smart`                 | `st sys smart`           |
+| Show disk usage stats     | `st system disk`                  | `st sys disk`            |
+| Install Packages          | `st system install`               | `st sys i`               |
+| Uninstall Packages        | `st system uninstall`             | `st sys un`              |
+| Install All Packages      | `st system install all`           | `st sys i all`           |
+| Uninstall All Packages    | `st system uninstall all`         | `st sys un all`          |
+| Install Docker            | `st system install docker`        | `st sys i docker`        |
+| Install btop              | `st system install btop`          | `st sys i btop`          |
+| Install eza               | `st system install eza`           | `st sys i eza`           |
+| Install neofetch          | `st system install neofetch`      | `st sys i neofetch`      |
+| Install ncdu              | `st system install ncdu`          | `st sys i ncdu`          |
+| Install duf               | `st system install duf`           | `st sys i duf`           |
+| Install vnstat            | `st system install vnstat`        | `st sys i vnstat`        |
+| Install ufw               | `st system install ufw`           | `st sys i ufw`           |
+| Install bat               | `st system install bat`           | `st sys i bat`           |
+| Install rclone            | `st system install rclone`        | `st sys i rclone`        |
+| Install restic            | `st system install restic`        | `st sys i restic`        |
+| Install resticprofile     | `st system install resticprofile` | `st sys i resticprofile` |
+| Uninstall the above       | `st system uninstall <package>`   | `st sys un <pkg>`        |
 
 ### st network
 
 Network helper scripts:
 
-| Description                | Full Command                | Alias        |
-| -------------------------- | --------------------------- | ------------ |
-| Network Helper Scripts     | `st network`                | `st net`     |
-| Show network interfaces    | `st network interfaces`     | `st net ifs` |
-| Show link speed            | `st network linkspeed`      | `st net speed`|
-| Run a network speed test   | `st network speedtest`      | `st net st`  |
-| Show public IP address     | `st network publicip`       | `st net pip` |
-| Show local IP address      | `st network localip`        | `st net lip` |
-| Show Wi-Fi information     | `st network wifiinfo`       | `st net wifi`|
+| Description              | Full Command            | Alias          |
+| ------------------------ | ----------------------- | -------------- |
+| Network Helper Scripts   | `st network`            | `st net`       |
+| Show network interfaces  | `st network interfaces` | `st net ifs`   |
+| Show link speed          | `st network linkspeed`  | `st net speed` |
+| Run a network speed test | `st network speedtest`  | `st net st`    |
+| Show public IP address   | `st network publicip`   | `st net pip`   |
+| Show local IP address    | `st network localip`    | `st net lip`   |
+| Show Wi-Fi information   | `st network wifiinfo`   | `st net wifi`  |
 
 ---
 
