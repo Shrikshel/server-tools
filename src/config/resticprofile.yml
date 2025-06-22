@@ -1,0 +1,8 @@
+name: resticprofile
+alias: rp
+help: Restic Profile Management
+commands:
+  - name: show
+    alias: s
+    help: Show Restic Profile Details
+  

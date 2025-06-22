@@ -33,7 +33,7 @@ check_required_env_vars() {
 }
 
 
-chceck_command_exists() {
+is_command_exist() {
   local cmd="$1"
   if ! command -v "$cmd" &> /dev/null; then
     log_error "Command '$cmd' is not installed."
@@ -41,4 +41,13 @@ chceck_command_exists() {
     exit 1
   fi
   log_success "Command '$cmd' is installed."
+}
+
+print_file() {
+    local file="$1"
+    if command -v batcat &> /dev/null; then
+        batcat "$file"
+    else
+        cat "$file"
+    fi
 }
