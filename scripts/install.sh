@@ -52,21 +52,19 @@ create_default_config_if_missing() {
 
 # ========== Configurable Defaults ==========
 declare -A DEFAULT_VARS=(
-  ["DOCKER_STACKS_PROD_PATH"]=""
-  ["RESTIC_REPOSITORY"]=""
-  ["RESTIC_PASSWORD"]=""
-  ["RESTIC_PROFILE"]=""
+  ["ST_PROD_STACKS_PATH"]=""
+  ["ST_RESTIC_REPOSITORY"]=""
+  ["ST_RESTIC_PASSWORD"]=""
+  ["ST_RESTIC_PROFILE"]=""
 )
 
 add_missing_vars() {
   for key in "${!DEFAULT_VARS[@]}"; do
-    echo "Checking key: $key"
     if grep -qE "^[[:space:]]*${key}=" "$CONFIG_FILE"; then
-      echo "  ➤ '$key' already exists. Skipping."
-    else
-      echo "${key}=${DEFAULT_VARS[$key]}" >>"$CONFIG_FILE"
-      echo "  ➕ Added '${key}=${DEFAULT_VARS[$key]}'"
+      continue
     fi
+    echo "${key}=${DEFAULT_VARS[$key]}" >>"$CONFIG_FILE"
+    echo "Added '${key}=${DEFAULT_VARS[$key]}' to config."
   done
 }
 

@@ -1,5 +1,5 @@
 is_command_exist restic
-check_required_env_vars RESTIC_REPOSITORY RESTIC_PASSWORD
+check_required_env_vars ST_RESTIC_REPOSITORY ST_RESTIC_PASSWORD
 
 
 restic check
