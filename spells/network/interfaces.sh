@@ -5,7 +5,7 @@ NC='\033[0m' # No Color
 
 log_info "Listing all physical network interfaces:"
 ls /sys/class/net | grep -vE '^(lo|docker|veth|br-|virbr|vmnet|tun|tap)' | while read iface; do
-    log_orange "${ORANGE}${iface}"
+    echo -e "${ORANGE}${iface}${NC}"
 done
 
 echo
@@ -19,5 +19,5 @@ done
 
 log_info "Active physical network interfaces:"
 ip -o link show up | awk -F': ' '{print $2}' | grep -vE '^(lo|docker|veth|br-|virbr|vmnet|tun|tap)' | while read iface; do
-    log_orange "${ORANGE}${iface}${NC}"
+    echo -e "${ORANGE}${iface}${NC}"
 done
