@@ -32,14 +32,20 @@ sudo dpkg -i "$TMP_FILE" || sudo apt-get install -f -y
 
 CONFIG_DIR="$HOME/.config"
 CONFIG_FILE="$CONFIG_DIR/.st.conf"
+
 mkdir -p "$CONFIG_DIR"
-cat > "$CONFIG_FILE" <<EOL
+
+if [[ ! -f "$CONFIG_FILE" ]]; then
+    cat > "$CONFIG_FILE" <<EOL
 # Environment variables for Server Tools
 ST_PROD_STACKS_PATH=
 # Add more variables below as needed
 EOL
+    echo "Created default config at $CONFIG_FILE"
+else
+    echo "Config file already exists at $CONFIG_FILE. Skipping creation."
+fi
 
-echo -e "${GREEN}Created config file at $CONFIG_FILE with example variables.${NC}"
 
 echo -e "${GREEN}✅ Installed successfully!${NC}"
 st --help || true
