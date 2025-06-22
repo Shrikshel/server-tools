@@ -1,22 +1,51 @@
 name: network
 help: Network Helper Scripts
 alias: net
+example: 
+  - st network interfaces
+  - st net ifs
+  - st network speedtest
+  - st net st
+  - st network publicip
+  - st net pip
+  - st network localip
+  - st net lip
+  - st network wifiinfo
+  - st net wifi
 commands:
   - name: interfaces
     alias: ifs
+    example: 
+      - st network interfaces
+      - st net ifs
     help: Show network interfaces
   - name: linkspeed
     alias: speed
+    example:
+      - st network linkspeed
+      - st net speed
     help: Show link speed of network interfaces
   - name: speedtest
     alias: st
+    example:
+      - st network speedtest
+      - st net st
     help: Run a network speed test
   - name: publicip
-    alias: pub
+    alias: pip
+    example:
+      - st network publicip
+      - st net pip
     help: Show public IP address
   - name: localip
-    alias: loc
+    alias: lip
+    example:
+      - st network localip
+      - st net lip
     help: Show local IP address
   - name: wifiinfo
     alias: wifi
+    example:
+      - st network wifiinfo
+      - st net wifi
     help: Show Wi-Fi information
