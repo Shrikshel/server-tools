@@ -14,15 +14,18 @@ A modern, user-friendly command-line tool for managing headless Ubuntu servers, 
   - [Table of Contents](#table-of-contents)
   - [Installation \& Uninstallation](#installation--uninstallation)
   - [Features](#features)
+  - [Documentation](#documentation)
   - [Usage](#usage)
     - [Example Commands](#example-commands)
   - [Command Helper](#command-helper)
     - [st docker](#st-docker)
     - [st rclone](#st-rclone)
     - [st restic](#st-restic)
+    - [st resticprofile](#st-resticprofile)
     - [st ssh](#st-ssh)
     - [st config](#st-config)
     - [st system](#st-system)
+    - [st network](#st-network)
   - [Configuration](#configuration)
   - [Requirements](#requirements)
   - [Why use st?](#why-use-st)
@@ -54,6 +57,12 @@ curl -sL https://raw.githubusercontent.com/Shrikshel/server-tools/main/scripts/u
 - **System information and health checks**
 - **Disk usage and SMART status reports**
 - **Modular and extensible command structure**
+
+---
+
+## Documentation
+
+Full documentation and command reference can be found in the [docs/index.md](docs/index.md) file.
 
 ---
 
@@ -98,19 +107,33 @@ Docker management commands for containers and Compose stacks:
 
 Rclone utilities for syncing and managing cloud/local storage:
 
-| Description              | Full Command         | Alias      |
-| ------------------------ | -------------------- | ---------- |
-| Rclone Related Utilities | `st rclone`          | `st rc`    |
-| Dry run of rclone sync   | `st rclone dry-sync` | `st rc ds` |
-| Perform rclone sync      | `st rclone sync`     | `st rc s`  |
+| Description              | Full Command                 | Alias        |
+| ------------------------ | ---------------------------- | ------------ |
+| Rclone Related Utilities | `st rclone`                  | `st rc`      |
+| Dry run of rclone sync   | `st rclone dry-sync`         | `st rc ds`   |
+| Perform rclone sync      | `st rclone sync`             | `st rc s`    |
 
 ### st restic
 
 Restic backup and restore utilities:
 
-| Description              | Full Command | Alias   |
-| ------------------------ | ------------ | ------- |
-| Restic Related Utilities | `st restic`  | `st rs` |
+| Description                  | Full Command                        | Alias         |
+| ---------------------------- | ----------------------------------- | ------------- |
+| Restic Related Utilities     | `st restic`                         | `st rs`       |
+| List Restic Snapshots        | `st restic snapshots`               | `st rs snap`  |
+| List Snapshots (full)        | `st restic snapshots --full`        |               |
+| Check Restic Repository      | `st restic check`                   | `st rs chk`   |
+| Restore from Snapshot        | `st restic restore <id> <target>`   | `st rs rst`   |
+
+### st resticprofile
+
+Restic Profile Management:
+
+| Description                      | Full Command                          | Alias         |
+| -------------------------------- | ------------------------------------- | ------------- |
+| Restic Profile Management        | `st resticprofile`                    | `st rp`       |
+| Show Restic Profile Details      | `st resticprofile show <profile>`     | `st rp s`     |
+| List Snapshots in Restic Profile | `st resticprofile snapshots <profile>`| `st rp ss`    |
 
 ### st ssh
 
@@ -143,6 +166,9 @@ System management utilities for packages, updates, and diagnostics:
 | Update System Packages    | `st system update`                | `st sys upd`            |
 | Upgrade System Packages   | `st system upgrade`               | `st sys upg`            |
 | Update & Upgrade Packages | `st system update-upgrade`        | `st sys updu`           |
+| Show system info          | `st system info`                  |                         |
+| Show SSD SMART stats      | `st system smart`                 |                         |
+| Show disk usage stats     | `st system disk`                  |                         |
 | Install Packages          | `st system install`               | `st sys i`              |
 | Uninstall Packages        | `st system uninstall`             | `st sys un`             |
 | Install All Packages      | `st system install all`           | `st sys i all`          |
@@ -158,9 +184,22 @@ System management utilities for packages, updates, and diagnostics:
 | Install bat               | `st system install bat`           | `st sys i bat`          |
 | Install rclone            | `st system install rclone`        | `st sys i rclone`       |
 | Install restic            | `st system install restic`        | `st sys i restic`       |
-| Install resticprofile     | `st system install resticprofile` | `st sys i rsticprofile` |
+| Install resticprofile     | `st system install resticprofile` | `st sys i resticprofile`|
 | Uninstall the above       | `st system uninstall <package>`   | `st sys un <pkg>`       |
 
+### st network
+
+Network helper scripts:
+
+| Description                | Full Command                | Alias        |
+| -------------------------- | --------------------------- | ------------ |
+| Network Helper Scripts     | `st network`                | `st net`     |
+| Show network interfaces    | `st network interfaces`     | `st net ifs` |
+| Show link speed            | `st network linkspeed`      | `st net speed`|
+| Run a network speed test   | `st network speedtest`      | `st net st`  |
+| Show public IP address     | `st network publicip`       | `st net pip` |
+| Show local IP address      | `st network localip`        | `st net lip` |
+| Show Wi-Fi information     | `st network wifiinfo`       | `st net wifi`|
 
 ---
 
