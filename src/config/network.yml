@@ -1,0 +1,22 @@
+name: network
+help: Network Helper Scripts
+alias: net
+commands:
+  - name: interfaces
+    alias: ifs
+    help: Show network interfaces
+  - name: linkspeed
+    alias: speed
+    help: Show link speed of network interfaces
+  - name: speedtest
+    alias: st
+    help: Run a network speed test
+  - name: publicip
+    alias: pub
+    help: Show public IP address
+  - name: localip
+    alias: loc
+    help: Show local IP address
+  - name: wifiinfo
+    alias: wifi
+    help: Show Wi-Fi information

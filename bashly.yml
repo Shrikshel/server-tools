@@ -9,5 +9,6 @@ commands:
   - import: src/config/resticprofile.yml
   - import: src/config/docker.yml
   - import: src/config/st-config.yml
+  - import: src/config/network.yml
   - name: completions
     help: Generate Bash Completions
