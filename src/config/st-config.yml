@@ -1,16 +1,37 @@
 name: config
 alias: conf
 help: Configs Releted to Server Tools
+examples:
+  - st config show
+  - st conf s
+  - st config edit
+  - st conf e
+  - st config verify
+  - st conf v
+  - st config source
+  - st conf so
 commands:
   - name: show
     alias: s
     help: System Configs
+    examples:
+      - st config show
+      - st conf s
   - name: edit
     alias: e
     help: Edit System Configs
+    examples:
+      - st config edit
+      - st conf e
   - name: verify
     alias: v
     help: Verify System Configs
+    examples:
+      - st config verify
+      - st conf v
   - name: source
     alias: so
     help: Source Configs
+    examples:
+      - st config source
+      - st conf so

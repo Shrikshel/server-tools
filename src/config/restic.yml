@@ -1,10 +1,26 @@
 name: restic
 alias: rs
 help: Restic Related Utilities
+examples:
+  - st restic snapshots
+  - st rs snapshots
+  - st rs snap
+  - st rs snap list
+  - st restic check
+  - st rs check
+  - st rs chk
+  - st restic restore 12345678 /path/to/restore
+  - st rs restore 12345678 /path/to/restore
+  - st rs rst 12345678 /path/to/restore
 commands:
   - name: snapshots
     alias: snap
     help: List Restic Snapshots
+    examples:
+      - st restic snapshots
+      - st rs snapshots
+      - st rs snap
+      - st rs snap list
     flags:
       - long: --full
         short: -f
@@ -12,6 +28,10 @@ commands:
   - name: check
     alias: chk
     help: Check Restic Repository for Errors
+    examples:
+      - st restic check
+      - st rs check
+      - st rs chk
   - name: restore
     alias: rst
     help: Restore from Restic Snapshot. Pass snapshot ID and target directory.
@@ -20,3 +40,7 @@ commands:
         help: Snapshot ID to restore from
       - name: target
         help: Target directory to restore to
+    examples:
+      - st restic restore 12345678 /path/to/restore
+      - st rs restore 12345678 /path/to/restore
+      - st rs rst 12345678 /path/to/restore

@@ -1,6 +1,19 @@
 name: docker
 alias: dc
 help: Docker Related Utilities
+examples:
+  - st docker compose manage-stacks
+  - st dc compose manage-stacks
+  - st dc c manage-stacks
+  - st dc c ms
+  - st docker compose stop-all
+  - st dc compose stop-all
+  - st dc c stop-all
+  - st dc c stop
+  - st docker compose start-all
+  - st dc compose start-all
+  - st dc c start-all
+  - st dc c start
 commands:
   - name: compose
     alias: c

@@ -5,6 +5,9 @@ commands:
   - name: show
     alias: s
     help: Show Restic Profile Details
+    examples:
+      - st resticprofile show myprofile
+      - st rp s myprofile
   - name: snapshots
     alias: ss
     help: List Snapshots in Restic Profile
@@ -12,3 +15,6 @@ commands:
       - name: profile
         help: Name of the Restic Profile
         required: true
+    examples:
+      - st resticprofile snapshots myprofile
+      - st rp ss myprofile

@@ -29,6 +29,31 @@ commands:
   - name: install
     help: Install Packages
     alias: i
+    examples:
+      - st sys install all
+      - st sys i all
+      - st sys install docker
+      - st sys i docker
+      - st sys install btop
+      - st sys i btop
+      - st sys install eza
+      - st sys i eza
+      - st sys install neofetch
+      - st sys i neofetch
+      - st sys install ncdu
+      - st sys i ncdu
+      - st sys install duf
+      - st sys i duf
+      - st sys install vnstat
+      - st sys i vnstat
+      - st sys install ufw
+      - st sys i ufw
+      - st sys install bat
+      - st sys i bat
+      - st sys install rclone
+      - st sys i rclone
+      - st sys install restic
+      - st sys i restic
     commands:
       - name: all
         help: Install all packages
@@ -59,6 +84,31 @@ commands:
   - name: uninstall
     help: Uninstall Packages
     alias: un
+    examples:
+      - st sys uninstall all
+      - st sys un all
+      - st sys uninstall docker
+      - st sys un docker
+      - st sys uninstall btop
+      - st sys un btop
+      - st sys uninstall eza
+      - st sys un eza
+      - st sys uninstall neofetch
+      - st sys un neofetch
+      - st sys uninstall ncdu
+      - st sys un ncdu
+      - st sys uninstall duf
+      - st sys un duf
+      - st sys uninstall vnstat
+      - st sys un vnstat
+      - st sys uninstall ufw
+      - st sys un ufw
+      - st sys uninstall bat
+      - st sys un bat
+      - st sys uninstall rclone
+      - st sys un rclone
+      - st sys uninstall restic
+      - st sys un restic
     commands:
       - name: all
         help: Uninstall all packages
