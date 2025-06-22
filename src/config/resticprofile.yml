@@ -5,4 +5,10 @@ commands:
   - name: show
     alias: s
     help: Show Restic Profile Details
-  
+  - name: snapshots
+    alias: ss
+    help: List Snapshots in Restic Profile
+    args:
+      - name: profile
+        help: Name of the Restic Profile
+        required: true
