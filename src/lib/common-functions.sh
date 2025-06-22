@@ -1,6 +1,6 @@
 check_required_env_vars() {
   local missing_vars=()
-  local config_file="$HOME/.config/.bashly.conf"
+  local config_file="$HOME/.config/.st.conf"
 
   for var in "$@"; do
     if [[ -z "${!var}" ]]; then
@@ -40,7 +40,6 @@ is_command_exist() {
     log_info "Please install it to continue."
     exit 1
   fi
-  log_success "Command '$cmd' is installed."
 }
 
 print_file() {
