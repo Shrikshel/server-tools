@@ -10,5 +10,7 @@ commands:
   - import: src/config/docker.yml
   - import: src/config/st-config.yml
   - import: src/config/network.yml
+  - name: ui
+    help: Start ST with a TUI
   - name: completions
     help: Generate Bash Completions

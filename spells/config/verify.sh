@@ -19,6 +19,5 @@ else
     for var in "${missing_vars[@]}"; do
         log_warn "  - $var"
     done
-    log_error "Run 'st config edit' to set them."
-    exit 1
+    log_error "Run 'st config edit' to set them.."
 fi
