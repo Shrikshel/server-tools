@@ -1,3 +1,5 @@
+<p align="center"><b><span style="color: red; font-size: 2em;">🚨 WARNING: This project is under active development and may break at any time. Avoid using in production until version 1.0.0! 🚨</span></b></p>
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/Shrikshel/server-tools/main/assets/logo.png" width="200" alt="Server Tools Logo" style="border-radius: 10px;"/>
 </p>
