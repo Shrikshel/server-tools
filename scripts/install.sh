@@ -50,6 +50,15 @@ create_default_config_if_missing() {
   fi
 }
 
+install_dependencies() {
+  echo -e "${YELLOW}🔧 Installing dependencies...${NC}"
+  sudo apt-get update
+  sudo mkdir -p /etc/apt/keyrings
+  curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
+  echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
+  sudo apt update && sudo apt install gum
+}
+
 # ========== Configurable Defaults ==========
 declare -A DEFAULT_VARS=(
   ["ST_PROD_STACKS_PATH"]=""
@@ -72,6 +81,7 @@ add_missing_vars() {
 
 fetch_latest_release_url
 download_and_install
+install_dependencies
 create_default_config_if_missing
 add_missing_vars
 
