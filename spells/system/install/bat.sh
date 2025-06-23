@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 
+# Install bat
 if command -v bat &>/dev/null || command -v batcat &>/dev/null; then
     log_debug "bat or batcat is already installed."
 else
     log_info "🔧 Installing bat..."
-    sudo apt-get update && sudo apt-get install -y bat
-    log_success "bat Installed Successfully"
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        sudo apt-get update && sudo apt-get install -y bat
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        brew install bat
+    else
+        log_error "Unsupported OS: $OSTYPE"
+        exit 1
+    fi
+        log_success "🔧 bat Installed Successfully"
 fi
 
 # Add alias if not already present

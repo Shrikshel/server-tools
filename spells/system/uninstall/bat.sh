@@ -8,8 +8,16 @@ fi
 
 if command -v bat &>/dev/null || command -v batcat &>/dev/null; then
     log_info "🔧 Uninstalling bat..."
-    sudo apt-get remove -y bat
-    log_success "bat Uninstalled Successfully"
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        sudo apt-get remove -y bat
+        log_success "bat Uninstalled Successfully"
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        brew uninstall bat
+        log_success "bat Uninstalled Successfully"
+    else
+        log_error "Unsupported OS: $OSTYPE"
+        exit 1
+    fi
 else
     log_debug "bat is already uninstalled."
 fi

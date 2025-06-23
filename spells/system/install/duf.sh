@@ -2,9 +2,15 @@
 
 if ! command -v duf &>/dev/null; then
     log_info "🔧 Installing duf..."
-    sudo apt-get update -qq
-    sudo apt-get install -y duf
-    log_success "duf Installed Successfully"
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        sudo apt-get update -qq && sudo apt-get install -y duf
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        brew install duf
+    else
+        log_error "Unsupported OS: $OSTYPE"
+        exit 1
+    fi
+    log_success "🔧 duf Installed Successfully"
 else
     log_info "✅ duf is already installed."
 fi
