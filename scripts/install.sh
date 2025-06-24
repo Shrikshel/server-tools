@@ -51,6 +51,11 @@ create_default_config_if_missing() {
 }
 
 install_dependencies() {
+  if command -v gum >/dev/null 2>&1; then
+    echo -e "${GREEN}✔️  'gum' is already installed. Skipping dependency installation.${NC}"
+    return
+  fi
+
   echo -e "${YELLOW}🔧 Installing dependencies...${NC}"
   sudo apt-get update
   sudo mkdir -p /etc/apt/keyrings
