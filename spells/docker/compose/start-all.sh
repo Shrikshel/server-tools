@@ -8,12 +8,12 @@ log_success "Docker is installed."
 echo
 
 log_info "Checking if all required environment variables are set..."
-check_required_env_vars ST_DOCKER_STACKS_PROD_PATH
+check_required_env_vars ST_PROD_STACKS_PATH
 log_success "All required environment variables are set."
 
 echo
 
-PARENT_DIR="$ST_DOCKER_STACKS_PROD_PATH"
+PARENT_DIR="$ST_PROD_STACKS_PATH"
 
 echo "🔍 Searching for Docker stacks in: $PARENT_DIR"
 errors=0
