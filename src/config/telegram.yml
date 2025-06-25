@@ -10,12 +10,20 @@ commands:
   - name: send
     help: Send a message via Telegram Bot
     alias: s
+    args:
+      - name: message
+        help: The message to send
+        required: true
     examples:
       - st telegram send "Hello, World!"
       - st tg s "Hello, World!"
   - name: send-file
     help: Send a file via Telegram Bot
     alias: sf
+    args:
+      - name: file_path
+        help: The path to the file to send
+        required: true
     examples:
       - st telegram send-file /path/to/file.txt
       - st tg sf /path/to/file.txt

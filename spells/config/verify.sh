@@ -1,6 +1,6 @@
 log_debug "Verifying that ${CONFIG_FILE} has all required variables with non-empty values"
 
-REQUIRED_VARS=("ST_DOCKER_STACKS_PROD_PATH" "ST_RESTIC_REPOSITORY" "ST_RESTIC_PASSWORD" "ST_RESTIC_PROFILE") # <-- Add required variable names here
+REQUIRED_VARS=("ST_PROD_STACKS_PATH" "ST_RESTIC_REPOSITORY" "ST_RESTIC_PASSWORD" "ST_RESTIC_PROFILE" "ST_TELEGRAM_BOT_TOKEN" "ST_TELEGRAM_CHAT_ID") # <-- Add required variable names here
 
 missing_vars=()
 unset_vars=()

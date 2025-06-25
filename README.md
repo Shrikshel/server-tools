@@ -44,6 +44,7 @@
     - [st config](#st-config)
     - [st system](#st-system)
     - [st network](#st-network)
+    - [st telegram](#st-telegram)
   - [Configuration](#configuration)
   - [Requirements](#requirements)
   - [Why use st?](#why-use-st)
@@ -218,6 +219,15 @@ Network helper scripts:
 | Show public IP address   | `st network publicip`   | `st net pip`   |
 | Show local IP address    | `st network localip`    | `st net lip`   |
 | Show Wi-Fi information   | `st network wifiinfo`   | `st net wifi`  |
+
+### st telegram
+
+Telegram integration (requires `ST_TELEGRAM_BOT_TOKEN` and `ST_TELEGRAM_CHAT_ID` environment variables):
+
+| Description    | Full Command                                      | Alias      |
+| -------------- | ------------------------------------------------- | ---------- |
+| Send a message | `st telegram send --message "text"`               | `st tg s`  |
+| Send a file    | `st telegram send-file --file-path /path/to/file` | `st tg sf` |
 
 ---
 

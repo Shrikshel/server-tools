@@ -70,6 +70,8 @@ declare -A DEFAULT_VARS=(
   ["ST_RESTIC_REPOSITORY"]=""
   ["ST_RESTIC_PASSWORD"]=""
   ["ST_RESTIC_PROFILE"]=""
+  ["ST_TELEGRAM_BOT_TOKEN"]=""
+  ["ST_TELEGRAM_CHAT_ID"]=""
 )
 
 add_missing_vars() {
