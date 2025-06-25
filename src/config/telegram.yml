@@ -1,0 +1,21 @@
+name: telegram
+alias: tg
+help: Telegram Bot Utilities
+examples:
+  - st telegram send "Hello, World!"
+  - st tg s "Hello, World!"
+  - st telegram send-file /path/to/file.txt
+  - st tg sf /path/to/file.txt
+commands:
+  - name: send
+    help: Send a message via Telegram Bot
+    alias: s
+    examples:
+      - st telegram send "Hello, World!"
+      - st tg s "Hello, World!"
+  - name: send-file
+    help: Send a file via Telegram Bot
+    alias: sf
+    examples:
+      - st telegram send-file /path/to/file.txt
+      - st tg sf /path/to/file.txt

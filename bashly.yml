@@ -10,6 +10,7 @@ commands:
   - import: src/config/docker.yml
   - import: src/config/st-config.yml
   - import: src/config/network.yml
+  - import: src/config/telegram.yml
   - name: ui
     help: Start ST with a TUI
   - name: completions
