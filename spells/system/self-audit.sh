@@ -36,12 +36,6 @@ check "Fail2Ban Installed" "command -v fail2ban-client" "Fail2Ban is installed" 
 check "Auto Updates"       "systemctl is-enabled unattended-upgrades | grep -q enabled" "Enabled" "Not enabled"
 
 # ─────────────────────────────────────────────────────────────
-print_header "Disk & SMART Status"
-check "Root Disk Usage" \
-  "df -h / | awk 'NR==2 {exit (\$5+0 < 90)}'" \
-  "Disk usage under 90%" \
-  "Disk usage is 90% or higher"
-
 # SMART health check (safely identify main disk first)
 main_disk=$(lsblk -ndo PKNAME "$(df / | awk 'END{print $1}')" | head -n1)
 smart_device="/dev/${main_disk:-sda}"
