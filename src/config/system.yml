@@ -26,6 +26,10 @@ commands:
   - name: disk
     help: Show disk usage stats
 
+  - name: self-audit
+    help: Run self audit to check for issues
+    alias: sa
+
   - name: install
     help: Install Packages
     alias: i
