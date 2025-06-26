@@ -46,3 +46,10 @@ log() {
   printf "\033[1;%sm%10s  %s\033[0m\n" "$color" "[$label]" "$message"
 }
 
+log_inline() {
+  local color="$1"
+  local label="$2"
+  shift 2
+  local message="$*"
+  printf "\033[1;%sm%10s  %s\033[0m" "$color" "[$label]" "$message"
+}

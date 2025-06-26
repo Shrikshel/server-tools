@@ -1,10 +1,12 @@
 name: tmux
 help: Terminal Multiplexer Utilities
+alias: tx
 examples:
   - st tmux new-session mysession
   - st tmux attach-session mysession
   - st tmux list-sessions
   - st tmux kill-session mysession
+  - st tmux cheatsheet
 commands:
   - name: new-session
     help: Create a new tmux session
@@ -22,7 +24,6 @@ commands:
     args:
       - name: session_name
         help: The name of the tmux session to attach to
-        required: true
     examples:
       - st tmux attach-session mysession
       - st tmux as mysession
@@ -40,7 +41,6 @@ commands:
     args:
       - name: session_name
         help: The name of the tmux session to kill
-        required: true
     examples:
       - st tmux kill-session mysession
       - st tmux ks mysession
