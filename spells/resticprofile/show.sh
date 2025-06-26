@@ -5,4 +5,7 @@ check_required_env_vars ST_RESTIC_PROFILE_FILE ST_RESTIC_PROFILES
 log_info "Restic Profile File is located at: $ST_RESTIC_PROFILE_FILE"
 print_file "$ST_RESTIC_PROFILE_FILE"
 
+echo
+echo
 st resticprofile list
+echo

@@ -8,12 +8,14 @@ commands:
     examples:
       - st resticprofile show myprofile
       - st rp s myprofile
+
   - name: list
     alias: ls
     help: List All Restic Profiles
     examples:
       - st resticprofile list
       - st rp ls
+
   - name: snapshots
     alias: ss
     help: List Snapshots in Restic Profile
@@ -21,9 +23,23 @@ commands:
       - name: profile
         help: Name of the Restic Profile
     flags:
-      - long: --full
-        short: -f
-        help: Output full snapshot details
+      - long: --compact
+        short: -c
+        help: Display snapshots in compact format
     examples:
       - st resticprofile snapshots myprofile
       - st rp ss myprofile
+
+  - name: backup
+    alias: b
+    help: Perform Backup with Restic Profile
+    args:
+      - name: profile
+        help: Name of the Restic Profile
+    flags:
+      - long: --dry-run
+        short: -d
+        help: Perform a dry run without actual backup
+    examples:
+      - st resticprofile backup myprofile
+      - st rp b myprofile --dry-run

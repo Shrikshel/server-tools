@@ -58,20 +58,16 @@ else
 fi
 
 log_info "Selected profile: $profile"
-echo
-
 # Handle full flag
 extra_args=()
-if [[ "${args[--compact]}" == "1" ]]; then
-  extra_args+=("-c")
+if [[ ${args[--dry-run]} == "1" ]]; then
+  extra_args+=("--dry-run")
   echo
-  log_warn "Running Compact Snapshots"
+  log_warn "Running in dry-run mode. No changes will be made."
 fi
 
-
-
 # Run resticprofile command
-log_info "Running: resticprofile -c $ST_RESTIC_PROFILE_FILE -n $profile snapshots ${extra_args[@]}"
+log_info "Running: resticprofile -c $ST_RESTIC_PROFILE_FILE -n $profile backup ${extra_args[@]}"
 echo
-resticprofile -c "$ST_RESTIC_PROFILE_FILE" -n "$profile" snapshots "${extra_args[@]}" || log_error "Failed to run resticprofile snapshots"
+resticprofile -c "$ST_RESTIC_PROFILE_FILE" -n "$profile" backup "${extra_args[@]}" || log_error "Failed to run resticprofile backup"
 echo
