@@ -45,6 +45,7 @@
     - [st system](#st-system)
     - [st network](#st-network)
     - [st telegram](#st-telegram)
+    - [st tmux](#st-tmux)
   - [Configuration](#configuration)
   - [Requirements](#requirements)
   - [Why use st?](#why-use-st)
@@ -228,6 +229,19 @@ Telegram integration (requires `ST_TELEGRAM_BOT_TOKEN` and `ST_TELEGRAM_CHAT_ID`
 | -------------- | ------------------------------------------------- | ---------- |
 | Send a message | `st telegram send --message "text"`               | `st tg s`  |
 | Send a file    | `st telegram send-file --file-path /path/to/file` | `st tg sf` |
+
+### st tmux
+
+Terminal multiplexer utilities for managing tmux sessions:
+
+| Description                | Full Command                        | Alias           |
+|----------------------------|-------------------------------------|-----------------|
+| Tmux Utilities             | `st tmux`                           |                 |
+| New Session                | `st tmux new-session <name>`        | `st tmux ns`    |
+| Attach to Session          | `st tmux attach-session <name>`     | `st tmux as`    |
+| List Sessions              | `st tmux list-sessions`             | `st tmux ls`    |
+| Kill Session               | `st tmux kill-session <name>`       | `st tmux ks`    |
+| Tmux Cheatsheet            | `st tmux cheatsheet`                | `st tmux cs`    |
 
 ---
 

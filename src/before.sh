@@ -1,2 +1,0 @@
-# add_separator ">" 60 "left" "red"
-echo

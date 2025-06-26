@@ -1,2 +1,0 @@
-# add_separator "<" 60 "right" "green"
-echo

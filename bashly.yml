@@ -11,6 +11,7 @@ commands:
   - import: src/config/st-config.yml
   - import: src/config/network.yml
   - import: src/config/telegram.yml
+  - import: src/config/tmux.yml
   - name: ui
     help: Start ST with a TUI
   - name: completions

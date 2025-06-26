@@ -1,0 +1,53 @@
+name: tmux
+help: Terminal Multiplexer Utilities
+examples:
+  - st tmux new-session mysession
+  - st tmux attach-session mysession
+  - st tmux list-sessions
+  - st tmux kill-session mysession
+commands:
+  - name: new-session
+    help: Create a new tmux session
+    alias: ns
+    args:
+      - name: session_name
+        help: The name of the new tmux session
+    examples:
+      - st tmux new-session mysession
+      - st tmux ns mysession
+
+  - name: attach-session
+    help: Attach to an existing tmux session
+    alias: as
+    args:
+      - name: session_name
+        help: The name of the tmux session to attach to
+        required: true
+    examples:
+      - st tmux attach-session mysession
+      - st tmux as mysession
+
+  - name: list-sessions
+    help: List all tmux sessions
+    alias: ls
+    examples:
+      - st tmux list-sessions
+      - st tmux ls
+
+  - name: kill-session
+    help: Kill a tmux session
+    alias: ks
+    args:
+      - name: session_name
+        help: The name of the tmux session to kill
+        required: true
+    examples:
+      - st tmux kill-session mysession
+      - st tmux ks mysession
+  
+  - name: cheatsheet
+    help: Show tmux cheatsheet
+    alias: cs
+    examples:
+      - st tmux cheatsheet
+      - st tmux cs
