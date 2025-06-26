@@ -35,3 +35,9 @@ commands:
     examples:
       - st config source
       - st conf so
+  - name: set-reset
+    alias: sr
+    help: Set or Reset Configs
+    examples:
+      - st config set-reset
+      - st conf sr
