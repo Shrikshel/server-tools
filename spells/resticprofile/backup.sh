@@ -16,7 +16,6 @@ IFS=' ' read -r -a profiles <<< "$ST_RESTIC_PROFILES"
 # Determine profile
 if [[ -n "${args[profile]}" ]]; then
   profile="${args[profile]}"
-  # Validate that the given profile exists in the list
   found=0
   for p in "${profiles[@]}"; do
     if [[ "$p" == "$profile" ]]; then
@@ -28,6 +27,9 @@ if [[ -n "${args[profile]}" ]]; then
     log_error "Provided profile '${args[profile]}' is not in ST_RESTIC_PROFILES"
     exit 1
   fi
+elif [[ ${#profiles[@]} -eq 1 ]]; then
+  profile="${profiles[0]}"
+  log_info "Only one profile found. Auto-selecting: $profile"
 else
   log_info "Available Restic Profiles:"
   echo
@@ -62,7 +64,6 @@ log_info "Selected profile: $profile"
 extra_args=()
 if [[ ${args[--dry-run]} == "1" ]]; then
   extra_args+=("--dry-run")
-  echo
   log_warn "Running in dry-run mode. No changes will be made."
 fi
 
