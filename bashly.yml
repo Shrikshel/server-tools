@@ -14,5 +14,8 @@ commands:
   - import: src/config/tmux.yml
   - name: ui
     help: Start ST with a TUI
+  - name: self-update
+    alias: update
+    help: Update the ST CLI
   - name: completions
     help: Generate Bash Completions
