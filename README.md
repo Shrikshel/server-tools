@@ -16,10 +16,15 @@
 ## Features
 
 - 🔄 Easy system updates and upgrades
-- 📦 Quick install/uninstall for popular packages (Docker, btop, etc.)
+- 📦 Quick install/uninstall for popular utilities (Docker, btop, eza, neofetch, ncdu, duf, vnstat, ufw, bat, rclone, restic, resticprofile)
 - 🎨 Colorful, readable output for all commands
 - 🧾 System info and health checks
 - 💾 Disk usage and SMART status
+- 🌐 Network utilities (interfaces, speedtest, public/local IP, Wi-Fi info)
+- 💬 Telegram integration for notifications and file sending
+- 🖥️ Tmux session management (create, attach, list, kill, cheatsheet)
+- 🔑 SSH key and connection management
+- ☁️ Rclone and Restic backup utilities
 - 🧩 Modular and extensible command structure
 
 ---
@@ -69,22 +74,6 @@ curl -sL https://raw.githubusercontent.com/Shrikshel/server-tools/main/scripts/u
 
 ---
 
-## Features
-
-- **Easy system updates and upgrades**
-- **Quick install/uninstall for popular utilities** (Docker, btop, eza, neofetch, ncdu, duf, vnstat, ufw)
-- **Colorful, readable output** for all commands
-- **System information and health checks**
-- **Disk usage and SMART status reports**
-- **Modular and extensible command structure**
-
----
-
-## Documentation
-
-Full documentation and command reference can be found in the [docs/index.md](docs/index.md) file.
-
----
 
 ## Usage
 
