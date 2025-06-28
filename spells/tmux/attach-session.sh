@@ -12,28 +12,33 @@ if [ -z "$SESSION_NAME" ]; then
         exit 1
     fi
 
-    echo
-    log_info "Active tmux sessions:"
-    for i in "${!sessions[@]}"; do
-        index=$((i + 1))
-        log "38;5;208" "$index" "${sessions[$i]}"
-    done
-    echo
-
-    log_inline 31 "INPUT" "Enter the number or name of the session to attach: "
-    read -r selection
-
-    # Convert number to name if input is numeric
-    if [[ "$selection" =~ ^[0-9]+$ ]]; then
-        idx=$((selection - 1))
-        if [ "$idx" -ge 0 ] && [ "$idx" -lt "${#sessions[@]}" ]; then
-            SESSION_NAME="${sessions[$idx]}"
-        else
-            log_error "Invalid session number."
-            exit 1
-        fi
+    if [ "${#sessions[@]}" -eq 1 ]; then
+        SESSION_NAME="${sessions[0]}"
+        log_info "Only one session found. Attaching to: $SESSION_NAME"
     else
-        SESSION_NAME="$selection"
+        echo
+        log_info "Active tmux sessions:"
+        for i in "${!sessions[@]}"; do
+            index=$((i + 1))
+            log "38;5;208" "$index" "${sessions[$i]}"
+        done
+        echo
+
+        log_inline 31 "INPUT" "Enter the number or name of the session to attach: "
+        read -r selection
+
+        # Convert number to name if input is numeric
+        if [[ "$selection" =~ ^[0-9]+$ ]]; then
+            idx=$((selection - 1))
+            if [ "$idx" -ge 0 ] && [ "$idx" -lt "${#sessions[@]}" ]; then
+                SESSION_NAME="${sessions[$idx]}"
+            else
+                log_error "Invalid session number."
+                exit 1
+            fi
+        else
+            SESSION_NAME="$selection"
+        fi
     fi
 fi
 

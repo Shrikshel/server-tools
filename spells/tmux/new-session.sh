@@ -20,9 +20,23 @@ if [[ -z "$SESSION_NAME" ]]; then
   fi
 fi
 
+# Check if the session already exists
 if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
   log_error "Session '$SESSION_NAME' already exists."
 fi
 
+# Create a new tmux session with the specified name
 tmux new-session -d -s "$SESSION_NAME"
 log_info "Created tmux session: $SESSION_NAME"
+
+
+# Prompt user to attach to the session
+log_inline 31 "INPUT" "Do you want to attach to the session '$SESSION_NAME'? [Y/n]: "
+read -r attach_choice
+
+attach_choice=${attach_choice:-Y}
+if [[ "$attach_choice" =~ ^[Yy]$ ]]; then
+  tmux attach-session -t "$SESSION_NAME"
+else
+  log_info "Session '$SESSION_NAME' created but not attached."
+fi
