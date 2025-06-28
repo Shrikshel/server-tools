@@ -19,5 +19,3 @@ commands:
     help: Update the ST CLI
   - name: uninstall
     help: Uninstall ST CLI
-  - name: completions
-    help: Generate Bash Completions

@@ -237,7 +237,6 @@ Additional utility scripts for Server Tools:
 
 | Description                        | Full Command         | Alias         |
 | ---------------------------------- | -------------------- | ------------- |
-| Source shell completions           | `st completions`     |               |
 | Update Server Tools CLI            | `st self-update`     |               |
 | Uninstall Server Tools CLI         | `st uninstall`       |               |
 | Launch interactive TUI menu (gum)  | `st ui`              |               |
