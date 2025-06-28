@@ -43,3 +43,13 @@ commands:
     examples:
       - st resticprofile backup myprofile
       - st rp b myprofile --dry-run
+
+  - name: stats
+    alias: st
+    help: Show Backup Statistics for Restic Profile
+    args:
+      - name: profile
+        help: Name of the Restic Profile
+    examples:
+      - st resticprofile stats myprofile
+      - st rp st myprofile
