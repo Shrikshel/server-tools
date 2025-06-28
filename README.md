@@ -36,8 +36,6 @@
   - [Features](#features)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
-  - [Features](#features-1)
-  - [Documentation](#documentation)
   - [Usage](#usage)
     - [Example Commands](#example-commands)
   - [Command Helper](#command-helper)
@@ -51,6 +49,7 @@
     - [st network](#st-network)
     - [st telegram](#st-telegram)
     - [st tmux](#st-tmux)
+    - [st tools](#st-tools)
   - [Configuration](#configuration)
   - [Requirements](#requirements)
   - [Why use st?](#why-use-st)
@@ -231,6 +230,17 @@ Terminal multiplexer utilities for managing tmux sessions:
 | List Sessions              | `st tmux list-sessions`             | `st tmux ls`    |
 | Kill Session               | `st tmux kill-session <name>`       | `st tmux ks`    |
 | Tmux Cheatsheet            | `st tmux cheatsheet`                | `st tmux cs`    |
+
+### st tools
+
+Additional utility scripts for Server Tools:
+
+| Description                        | Full Command         | Alias         |
+| ---------------------------------- | -------------------- | ------------- |
+| Source shell completions           | `st completions`     |               |
+| Update Server Tools CLI            | `st self-update`     |               |
+| Uninstall Server Tools CLI         | `st uninstall`       |               |
+| Launch interactive TUI menu (gum)  | `st ui`              |               |
 
 ---
 
