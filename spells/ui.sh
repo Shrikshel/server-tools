@@ -11,7 +11,7 @@ fi
 # Ordered Menu Definitions
 # -------------------------------
 
-MAIN_MENU_ORDER=(system docker network ssh rclone restic resticprofile config)
+MAIN_MENU_ORDER=(system docker network ssh rclone restic resticprofile tmux config)
 
 declare -A COMMAND_GROUPS=(
   [system]="System management utilities"
@@ -21,6 +21,7 @@ declare -A COMMAND_GROUPS=(
   [rclone]="Cloud sync via Rclone"
   [restic]="Backups with Restic"
   [resticprofile]="Restic profile manager"
+  [tmux]="Tmux session manager"
   [config]="Tool configuration"
 )
 
@@ -31,7 +32,8 @@ declare -A SUBCOMMANDS_order_network=( [0]=interfaces [1]=linkspeed [2]=speedtes
 declare -A SUBCOMMANDS_order_ssh=( [0]=keygen )
 declare -A SUBCOMMANDS_order_rclone=( [0]=dry-sync [1]=sync )
 declare -A SUBCOMMANDS_order_restic=( [0]=snapshots [1]=check [2]=restore )
-declare -A SUBCOMMANDS_order_resticprofile=( [0]=show [1]=snapshots )
+declare -A SUBCOMMANDS_order_resticprofile=( [0]=show [1]=snapshots [2]=stats [3]=forget [4]=list )
+declare -A SUBCOMMANDS_order_tmux=( [0]=list-sessions [1]=new-session [2]=attach-session [3]=kill-session [4]=cheatsheet )
 declare -A SUBCOMMANDS_order_config=( [0]=show [1]=edit [2]=verify [3]=source )
 
 # Subcommand descriptions per group
@@ -62,7 +64,20 @@ declare -A SUBCOMMANDS_network=(
 declare -A SUBCOMMANDS_ssh=( [keygen]="Generate SSH keys" )
 declare -A SUBCOMMANDS_rclone=( [dry-sync]="Dry sync" [sync]="Perform sync" )
 declare -A SUBCOMMANDS_restic=( [snapshots]="List snapshots" [check]="Check repository" [restore]="Restore from backup" )
-declare -A SUBCOMMANDS_resticprofile=( [show]="Show profile" [snapshots]="Profile snapshots" )
+declare -A SUBCOMMANDS_resticprofile=(
+  [show]="Show profile"
+  [snapshots]="Profile snapshots"
+  [stats]="Profile stats"
+  [forget]="Forget/prune old backups"
+  [list]="List profiles"
+)
+declare -A SUBCOMMANDS_tmux=(
+  [list-sessions]="List tmux sessions"
+  [new-session]="New tmux session"
+  [attach-session]="Attach to session"
+  [kill-session]="Kill tmux session"
+  [cheatsheet]="Tmux cheatsheet"
+)
 declare -A SUBCOMMANDS_config=( [show]="Show config" [edit]="Edit config" [verify]="Verify config" [source]="Source config" )
 
 # Installable packages
@@ -191,11 +206,20 @@ cmd::restic_restore()       { st restic restore; }
 
 cmd::resticprofile_show()   { st resticprofile show; }
 cmd::resticprofile_snapshots() { st resticprofile snapshots; }
+cmd::resticprofile_stats() { st resticprofile stats; }
+cmd::resticprofile_forget() { st resticprofile forget; }
+cmd::resticprofile_list() { st resticprofile list; }
 
 cmd::config_show()          { st config show; }
 cmd::config_edit()          { st config edit; }
 cmd::config_verify()        { st config verify; }
 cmd::config_source()        { st config source; }
+
+cmd::tmux_list-sessions()   { st tmux list-sessions; }
+cmd::tmux_new-session()     { st tmux new-session; }
+cmd::tmux_attach-session()  { st tmux attach-session; }
+cmd::tmux_kill-session()    { st tmux kill-session; }
+cmd::tmux_cheatsheet()      { st tmux cheatsheet; }
 
 cmd::rclone_dry-sync() {
   if ! command -v rclone &>/dev/null; then
