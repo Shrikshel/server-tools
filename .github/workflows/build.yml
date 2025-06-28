@@ -68,6 +68,19 @@ jobs:
         with:
           ruby-version: 3.1
 
+      - name: Set VERSION env from tag
+        run: |
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            export VERSION="${GITHUB_REF#refs/tags/v}"
+          else
+            export VERSION="${{ steps.version.outputs.version }}"
+          fi
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Update version in bashly.yml
+        run: |
+          sed -i "s/^version:.*/version: '$VERSION'/" bashly.yml
+
       - name: Install Bashly and Generate CLI
         run: |
           bundle config set path vendor/bundle
