@@ -93,6 +93,9 @@ st system disk              # Show disk usage
 st system smart             # Show SSD SMART stats
 st system install docker    # Install Docker
 st system uninstall btop    # Uninstall btop
+st reboot                   # Reboot the system
+st poweroff                 # Power off the system
+st sudosu                   # Switch to superuser mode
 ```
 
 ---
@@ -237,9 +240,12 @@ Additional utility scripts for Server Tools:
 
 | Description                        | Full Command         | Alias         |
 | ---------------------------------- | -------------------- | ------------- |
-| Update Server Tools CLI            | `st self-update`     |               |
+| Update Server Tools CLI            | `st self-update`     | `st update`   |
 | Uninstall Server Tools CLI         | `st uninstall`       |               |
 | Launch interactive TUI menu (gum)  | `st ui`              |               |
+| Reboot the system                  | `st reboot`          | `st r`        |
+| Power off the system               | `st poweroff`        | `st off`      |
+| Switch to superuser mode           | `st sudosu`          | `st su`       |
 
 ---
 
