@@ -16,6 +16,9 @@ commands:
 
   - name: info
     help: Show system info
+    flags:
+      - long: --full
+        help: Show full system info
 
   - name: smart
     help: Show SSD SMART stats
