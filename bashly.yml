@@ -14,8 +14,22 @@ commands:
   - import: src/config/tmux.yml
   - name: ui
     help: Start ST with a TUI
+
+  - name: sudosu
+    alias: su
+    help: Execute sudo su
+
+  - name: poweroff
+    alias: off
+    help: Power off the system
+
+  - name: reboot
+    alias: r
+    help: Reboot the system
+
   - name: self-update
     alias: update
     help: Update the ST CLI
+    
   - name: uninstall
     help: Uninstall ST CLI
