@@ -21,6 +21,7 @@
 - 🧾 System info and health checks
 - 💾 Disk usage and SMART status
 - 🌐 Network utilities (interfaces, speedtest, public/local IP, Wi-Fi info)
+- 🔒 Tailscale VPN management (up, down, status)
 - 💬 Telegram integration for notifications and file sending
 - 🖥️ Tmux session management (create, attach, list, kill, cheatsheet)
 - 🔑 SSH key and connection management
@@ -49,6 +50,7 @@
     - [st network](#st-network)
     - [st telegram](#st-telegram)
     - [st tmux](#st-tmux)
+    - [st tailscale](#st-tailscale)
     - [st tools](#st-tools)
   - [Configuration](#configuration)
   - [Development](#development)
@@ -235,6 +237,17 @@ Terminal multiplexer utilities for managing tmux sessions:
 | Kill Session               | `st tmux kill-session <name>`       | `st tmux ks`    |
 | Tmux Cheatsheet            | `st tmux cheatsheet`                | `st tmux cs`    |
 
+### st tailscale
+
+Tailscale VPN management commands:
+
+| Description           | Full Command         | Alias   |
+|----------------------|----------------------|---------|
+| Tailscale Utilities  | `st tailscale`       | `st ts` |
+| Start Tailscale      | `st tailscale up`    | `st ts u` |
+| Stop Tailscale       | `st tailscale down`  | `st ts d` |
+| Show Tailscale status| `st tailscale status`| `st ts s` |
+
 ### st tools
 
 Additional utility scripts for Server Tools:
@@ -289,8 +302,6 @@ To contribute or run Server Tools locally:
      ```bash
      sudo apt install gum -y
      ```
-     
-    
 3. **Install Bashly CLI:**
    ```bash
    sudo gem install bashly
