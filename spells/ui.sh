@@ -11,7 +11,7 @@ fi
 # Ordered Menu Definitions
 # -------------------------------
 
-MAIN_MENU_ORDER=(system docker network ssh rclone restic resticprofile tmux config)
+MAIN_MENU_ORDER=(system docker network ssh rclone restic resticprofile tmux tailscale config)
 
 declare -A COMMAND_GROUPS=(
   [system]="System management utilities"
@@ -22,6 +22,7 @@ declare -A COMMAND_GROUPS=(
   [restic]="Backups with Restic"
   [resticprofile]="Restic profile manager"
   [tmux]="Tmux session manager"
+  [tailscale]="Tailscale VPN management"
   [config]="Tool configuration"
 )
 
@@ -34,6 +35,7 @@ declare -A SUBCOMMANDS_order_rclone=( [0]=dry-sync [1]=sync )
 declare -A SUBCOMMANDS_order_restic=( [0]=snapshots [1]=check [2]=restore )
 declare -A SUBCOMMANDS_order_resticprofile=( [0]=show [1]=snapshots [2]=stats [3]=forget [4]=list )
 declare -A SUBCOMMANDS_order_tmux=( [0]=list-sessions [1]=new-session [2]=attach-session [3]=kill-session [4]=cheatsheet )
+declare -A SUBCOMMANDS_order_tailscale=( [0]=up [1]=down [2]=status )
 declare -A SUBCOMMANDS_order_config=( [0]=show [1]=edit [2]=verify [3]=source )
 
 # Subcommand descriptions per group
@@ -77,6 +79,11 @@ declare -A SUBCOMMANDS_tmux=(
   [attach-session]="Attach to session"
   [kill-session]="Kill tmux session"
   [cheatsheet]="Tmux cheatsheet"
+)
+declare -A SUBCOMMANDS_tailscale=(
+  [up]="Bring Tailscale up"
+  [down]="Bring Tailscale down"
+  [status]="Show Tailscale status"
 )
 declare -A SUBCOMMANDS_config=( [show]="Show config" [edit]="Edit config" [verify]="Verify config" [source]="Source config" )
 
@@ -220,6 +227,10 @@ cmd::tmux_new-session()     { st tmux new-session; }
 cmd::tmux_attach-session()  { st tmux attach-session; }
 cmd::tmux_kill-session()    { st tmux kill-session; }
 cmd::tmux_cheatsheet()      { st tmux cheatsheet; }
+
+cmd::tailscale_up()      { st tailscale up; }
+cmd::tailscale_down()    { st tailscale down; }
+cmd::tailscale_status()  { st tailscale status; }
 
 cmd::rclone_dry-sync() {
   if ! command -v rclone &>/dev/null; then

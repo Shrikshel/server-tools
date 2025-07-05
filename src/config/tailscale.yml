@@ -1,0 +1,17 @@
+name: tailscale
+alias: ts
+help: Manage Tailscale connections and settings
+examples: 
+  - st tailscale up
+  - st ts down
+  - st tailscale status
+commands:
+  - name: up
+    help: Start Tailscale
+    alias: u
+  - name: down
+    help: Stop Tailscale
+    alias: d
+  - name: status
+    help: Show Tailscale status
+    alias: s
