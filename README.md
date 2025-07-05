@@ -51,6 +51,7 @@
     - [st tmux](#st-tmux)
     - [st tools](#st-tools)
   - [Configuration](#configuration)
+  - [Development](#development)
   - [Requirements](#requirements)
   - [Why use st?](#why-use-st)
   - [License](#license)
@@ -267,6 +268,37 @@ Example:
 # ~/.config/.st.conf
 NO_COLOR=1
 ```
+
+---
+
+## Development
+
+To contribute or run Server Tools locally:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Shrikshel/server-tools.git
+   cd server-tools
+   ```
+2. **Install dependencies:**
+   - Install RubyGems (if not already installed):
+     ```bash
+     sudo apt install rubygems -y
+     ```
+   - Install gum (optional):
+     ```bash
+     sudo apt install gum -y
+     ```
+     
+    
+3. **Install Bashly CLI:**
+   ```bash
+   sudo gem install bashly
+   ```
+4. **Build the CLI (after making changes to `bashly.yml`):**
+   ```bash
+   bashly generate
+   ```
 
 ---
 
