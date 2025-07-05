@@ -53,6 +53,7 @@
     - [st tailscale](#st-tailscale)
     - [st tools](#st-tools)
   - [Configuration](#configuration)
+  - [Development](#development)
   - [Requirements](#requirements)
   - [Why use st?](#why-use-st)
   - [License](#license)
