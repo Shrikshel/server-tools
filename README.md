@@ -126,6 +126,7 @@ Rclone utilities for syncing and managing cloud/local storage:
 | Rclone Related Utilities | `st rclone`          | `st rc`    |
 | Dry run of rclone sync   | `st rclone dry-sync` | `st rc ds` |
 | Perform rclone sync      | `st rclone sync`     | `st rc s`  |
+| Perform rclone copy      | `st rclone copy`     | `st rc c`  |
 
 ### st restic
 

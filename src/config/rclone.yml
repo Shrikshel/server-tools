@@ -33,3 +33,16 @@ commands:
       - name: destination
         required: true
         unique: false
+  - name: copy
+    alias: c
+    help: Perform rclone copy
+    examples:
+      -  st rclone copy source destination
+      -  st rc copy source destination
+    args:
+      - name: source
+        required: true
+        unique: false
+      - name: destination
+        required: true
+        unique: false

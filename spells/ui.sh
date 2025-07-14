@@ -31,7 +31,7 @@ declare -A SUBCOMMANDS_order_system=( [0]=info [1]=smart [2]=disk [3]=update [4]
 declare -A SUBCOMMANDS_order_docker=( [0]=compose [1]=stop-all [2]=start-all [3]=manage-stacks )
 declare -A SUBCOMMANDS_order_network=( [0]=interfaces [1]=linkspeed [2]=speedtest [3]=publicip [4]=localip [5]=wifiinfo )
 declare -A SUBCOMMANDS_order_ssh=( [0]=keygen )
-declare -A SUBCOMMANDS_order_rclone=( [0]=dry-sync [1]=sync )
+declare -A SUBCOMMANDS_order_rclone=( [0]=dry-sync [1]=sync [2]=copy )
 declare -A SUBCOMMANDS_order_restic=( [0]=snapshots [1]=check [2]=restore )
 declare -A SUBCOMMANDS_order_resticprofile=( [0]=show [1]=snapshots [2]=stats [3]=forget [4]=list )
 declare -A SUBCOMMANDS_order_tmux=( [0]=list-sessions [1]=new-session [2]=attach-session [3]=kill-session [4]=cheatsheet )
@@ -64,7 +64,7 @@ declare -A SUBCOMMANDS_network=(
   [wifiinfo]="Wi-Fi info"
 )
 declare -A SUBCOMMANDS_ssh=( [keygen]="Generate SSH keys" )
-declare -A SUBCOMMANDS_rclone=( [dry-sync]="Dry sync" [sync]="Perform sync" )
+declare -A SUBCOMMANDS_rclone=( [dry-sync]="Dry sync" [sync]="Perform sync" [copy]="Perform copy" )
 declare -A SUBCOMMANDS_restic=( [snapshots]="List snapshots" [check]="Check repository" [restore]="Restore from backup" )
 declare -A SUBCOMMANDS_resticprofile=(
   [show]="Show profile"
@@ -272,6 +272,27 @@ cmd::rclone_sync() {
   echo
 
   gum confirm "Proceed with full sync?" && st rclone sync "$source" "$target"
+}
+
+cmd::rclone_copy() {
+  if ! command -v rclone &>/dev/null; then
+    echo "❌ rclone is not installed. Please install it first."
+    return 1
+  fi
+
+  local source target
+  source=$(gum input --placeholder "Enter source path" --prompt "📂 Source: ") || return
+  [[ -z "$source" ]] && echo "❌ Source is required." && return
+
+  target=$(gum input --placeholder "Enter target path" --prompt "📁 Target: ") || return
+  [[ -z "$target" ]] && echo "❌ Target is required." && return
+
+  echo -e "\n📋 Copy plan:"
+  echo "Source ➜ $source"
+  echo "Target ➜ $target"
+  echo
+
+  gum confirm "Proceed with copy?" && st rclone copy "$source" "$target"
 }
 
 # -------------------------------
