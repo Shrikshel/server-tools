@@ -380,11 +380,11 @@ If you discover a security vulnerability, please report it responsibly by openin
 </p>
 <p align="center">
   <img src="assets/ss2.png" width="600" alt="Server Tools Screenshot 2"/>
-  <br><em>Installation Example</em>
+  <br><em>Software Install Menu</em>
 </p>
 <p align="center">
   <img src="assets/ss3.png" width="600" alt="Server Tools Screenshot 3"/>
-  <br><em>Package Install/Uninstall Menu</em>
+  <br><em>Docker Compose: Start All, Stop All, Manage Stacks</em>
 </p>
 
 ---
