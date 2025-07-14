@@ -10,6 +10,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Shell](https://img.shields.io/badge/made%20with-bash-1f425f.svg)](https://bash.sh)
+[![GitHub stars](https://img.shields.io/github/stars/Shrikshel/server-tools?style=social)](https://github.com/Shrikshel/server-tools/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/Shrikshel/server-tools)](https://github.com/Shrikshel/server-tools/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/Shrikshel/server-tools)](https://github.com/Shrikshel/server-tools/pulls)
 
 ---
 
@@ -56,7 +59,11 @@
   - [Development](#development)
   - [Requirements](#requirements)
   - [Why use st?](#why-use-st)
-  - [License](#license)
+  - [Community \& Support](#community--support)
+  - [Contributing](#contributing)
+  - [Security](#security)
+  - [Credits](#credits)
+  - [Screenshots](#screenshots)
 
 ---
 
@@ -327,13 +334,58 @@ To contribute or run Server Tools locally:
 - **Saves time**: Run common admin tasks with single commands  
 - **Reduces errors**: Built-in, tested scripts  
 - **Great for headless servers**: No GUI needed  
-- **Easy to extend**: Modular Bashly CLI
+- **Easy to extend**: Modular Bashly CLI  
+- **Modern TUI**: Interactive menu for all commands  
+- **Cloud & backup ready**: Rclone, Restic, Tailscale, Telegram, and more  
+- **Actively maintained**: Open to feedback and contributions  
+- **Secure**: No data collection, open source, and transparent
 
 ---
 
-## License
+## Community & Support
 
-MIT License
+- [GitHub Discussions](https://github.com/Shrikshel/server-tools/discussions) — Ask questions, share ideas, or get help
+- [Report Issues](https://github.com/Shrikshel/server-tools/issues) — Found a bug? Open an issue!
+
+---
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. You can help by:
+- Reporting bugs
+- Suggesting features
+- Submitting pull requests
+
+---
+
+## Security
+
+If you discover a security vulnerability, please report it responsibly by opening a private issue or contacting the maintainer.
+
+---
+
+## Credits
+
+- [Bashly](https://bashly.dannyb.co/) — CLI framework
+- [gum](https://github.com/charmbracelet/gum) — TUI components
+- [rclone](https://rclone.org/), [restic](https://restic.net/), [tailscale](https://tailscale.com/), and others
+
+---
+
+## Screenshots
+
+<p align="center">
+  <img src="assets/ss1.png" width="600" alt="Server Tools Screenshot 1"/>
+  <br><em>Main TUI Menu</em>
+</p>
+<p align="center">
+  <img src="assets/ss2.png" width="600" alt="Server Tools Screenshot 2"/>
+  <br><em>System Info Example</em>
+</p>
+<p align="center">
+  <img src="assets/ss3.png" width="600" alt="Server Tools Screenshot 3"/>
+  <br><em>Package Install/Uninstall Menu</em>
+</p>
 
 ---
 
