@@ -11,6 +11,8 @@ examples:
 commands:
   - name: all
     help: Install all packages
+  - name: guided
+    help: Install packages interactively
   - name: docker
     help: Install Docker
   - name: btop

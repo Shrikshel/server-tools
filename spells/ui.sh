@@ -29,8 +29,8 @@ declare -A COMMAND_GROUPS=(
 )
 
 # Ordered subcommand lists per group
-declare -A SUBCOMMANDS_order_install=( [0]=all )
-declare -A SUBCOMMANDS_order_uninstall=( [0]=all )
+declare -A SUBCOMMANDS_order_install=( [0]=all [1]=guided )
+declare -A SUBCOMMANDS_order_uninstall=( [0]=all [1]=guided )
 declare -A SUBCOMMANDS_order_system=( [0]=info [1]=smart [2]=disk [3]=update [4]=upgrade [5]=update-upgrade )
 declare -A SUBCOMMANDS_order_docker=( [0]=compose [1]=stop-all [2]=start-all [3]=manage-stacks )
 declare -A SUBCOMMANDS_order_network=( [0]=interfaces [1]=linkspeed [2]=speedtest [3]=publicip [4]=localip [5]=wifiinfo )

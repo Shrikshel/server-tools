@@ -11,6 +11,8 @@ examples:
 commands:
   - name: all
     help: Uninstall all packages
+  - name: guided
+    help: Uninstall packages interactively
   - name: docker
     help: Uninstall Docker
   - name: btop

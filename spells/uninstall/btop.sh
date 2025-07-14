@@ -2,7 +2,7 @@
 
 # Uninstall btop
 if command -v btop &> /dev/null; then
-    log_info "Uninstalling rclone..."
+    log_info "Uninstalling btop..."
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         sudo apt-get remove --purge -y btop
     elif [[ "$OSTYPE" == "darwin"* ]]; then

@@ -187,6 +187,7 @@ Install popular packages with a single command:
 | Description         | Full Command           | Alias         |
 | ------------------- | --------------------- | ------------- |
 | Install all         | `st install all`      |               |
+| Guided install tour | `st install guided`   |               |
 | Install Docker      | `st install docker`   | `st i docker` |
 | Install btop        | `st install btop`     | `st i btop`   |
 | Install eza         | `st install eza`      | `st i eza`    |
@@ -207,6 +208,7 @@ Uninstall packages with a single command:
 | Description           | Full Command             | Alias         |
 | --------------------- | ----------------------- | ------------- |
 | Uninstall all         | `st uninstall all`      |               |
+| Guided uninstall tour | `st uninstall guided`   |               |
 | Uninstall Docker      | `st uninstall docker`   | `st un docker`|
 | Uninstall btop        | `st uninstall btop`     | `st un btop`  |
 | Uninstall eza         | `st uninstall eza`      | `st un eza`   |
