@@ -3,6 +3,8 @@ help: Server Tools CLI
 version: 1.0.0
 commands:
   - import: src/config/system.yml
+  - import: src/config/install.yml
+  - import: src/config/uninstall.yml
   - import: src/config/rclone.yml
   - import: src/config/ssh.yml
   - import: src/config/restic.yml
@@ -32,5 +34,6 @@ commands:
     alias: update
     help: Update the ST CLI
     
-  - name: uninstall
+  - name: self-destruct
+    alias: destroy
     help: Uninstall ST CLI

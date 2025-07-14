@@ -1,0 +1,39 @@
+name: install
+help: Install Packages
+alias: i
+examples:
+  - st sys install all
+  - st sys i all
+  - st sys install docker
+  - st sys i docker
+  - st sys install btop
+  - st sys i btop
+commands:
+  - name: all
+    help: Install all packages
+  - name: docker
+    help: Install Docker
+  - name: btop
+    help: Install btop
+  - name: eza
+    help: Install eza
+  - name: neofetch
+    help: Install neofetch
+  - name: ncdu
+    help: Install ncdu
+  - name: duf
+    help: Install duf
+  - name: vnstat
+    help: Install vnstat
+  - name: ufw
+    help: Install ufw
+  - name: bat
+    help: Install bat
+  - name: rclone
+    help: Install rclone
+  - name: restic
+    help: Install restic
+  - name: resticprofile
+    help: Install restic profile
+  - name: tmux
+    help: Install tmux

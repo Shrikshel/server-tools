@@ -49,6 +49,8 @@
     - [st resticprofile](#st-resticprofile)
     - [st ssh](#st-ssh)
     - [st config](#st-config)
+    - [st install](#st-install)
+    - [st uninstall](#st-uninstall)
     - [st system](#st-system)
     - [st network](#st-network)
     - [st telegram](#st-telegram)
@@ -101,8 +103,8 @@ st system update-upgrade    # Update & upgrade together
 st system info              # Show system info
 st system disk              # Show disk usage
 st system smart             # Show SSD SMART stats
-st system install docker    # Install Docker
-st system uninstall btop    # Uninstall btop
+st install docker           # Install Docker
+st uninstall btop           # Uninstall btop
 st reboot                   # Reboot the system
 st poweroff                 # Power off the system
 st sudosu                   # Switch to superuser mode
@@ -178,9 +180,49 @@ Manage server tool configuration files:
 | Verify Config | `st config verify` | `st conf v`  |
 | Source Config | `st config source` | `st conf so` |
 
+### st install
+
+Install popular packages with a single command:
+
+| Description         | Full Command           | Alias         |
+| ------------------- | --------------------- | ------------- |
+| Install all         | `st install all`      |               |
+| Install Docker      | `st install docker`   | `st i docker` |
+| Install btop        | `st install btop`     | `st i btop`   |
+| Install eza         | `st install eza`      | `st i eza`    |
+| Install neofetch    | `st install neofetch` | `st i neofetch` |
+| Install ncdu        | `st install ncdu`     | `st i ncdu`   |
+| Install duf         | `st install duf`      | `st i duf`    |
+| Install vnstat      | `st install vnstat`   | `st i vnstat` |
+| Install ufw         | `st install ufw`      | `st i ufw`    |
+| Install bat         | `st install bat`      | `st i bat`    |
+| Install rclone      | `st install rclone`   | `st i rclone` |
+| Install restic      | `st install restic`   | `st i restic` |
+| Install resticprofile| `st install resticprofile`| `st i resticprofile` |
+
+### st uninstall
+
+Uninstall packages with a single command:
+
+| Description           | Full Command             | Alias         |
+| --------------------- | ----------------------- | ------------- |
+| Uninstall all         | `st uninstall all`      |               |
+| Uninstall Docker      | `st uninstall docker`   | `st un docker`|
+| Uninstall btop        | `st uninstall btop`     | `st un btop`  |
+| Uninstall eza         | `st uninstall eza`      | `st un eza`   |
+| Uninstall neofetch    | `st uninstall neofetch` | `st un neofetch` |
+| Uninstall ncdu        | `st uninstall ncdu`     | `st un ncdu`  |
+| Uninstall duf         | `st uninstall duf`      | `st un duf`    |
+| Uninstall vnstat      | `st uninstall vnstat`   | `st un vnstat`|
+| Uninstall ufw         | `st uninstall ufw`      | `st un ufw`   |
+| Uninstall bat         | `st uninstall bat`      | `st un bat`   |
+| Uninstall rclone      | `st uninstall rclone`   | `st un rclone`|
+| Uninstall restic      | `st uninstall restic`   | `st un restic`|
+| Uninstall resticprofile| `st uninstall resticprofile`| `st un resticprofile` |
+
 ### st system
 
-System management utilities for packages, updates, and diagnostics:
+System management utilities for updates and diagnostics:
 
 | Description               | Full Command                      | Alias                    |
 | ------------------------- | --------------------------------- | ------------------------ |
@@ -191,23 +233,6 @@ System management utilities for packages, updates, and diagnostics:
 | Show system info          | `st system info`                  | `st sys info`            |
 | Show SSD SMART stats      | `st system smart`                 | `st sys smart`           |
 | Show disk usage stats     | `st system disk`                  | `st sys disk`            |
-| Install Packages          | `st system install`               | `st sys i`               |
-| Uninstall Packages        | `st system uninstall`             | `st sys un`              |
-| Install All Packages      | `st system install all`           | `st sys i all`           |
-| Uninstall All Packages    | `st system uninstall all`         | `st sys un all`          |
-| Install Docker            | `st system install docker`        | `st sys i docker`        |
-| Install btop              | `st system install btop`          | `st sys i btop`          |
-| Install eza               | `st system install eza`           | `st sys i eza`           |
-| Install neofetch          | `st system install neofetch`      | `st sys i neofetch`      |
-| Install ncdu              | `st system install ncdu`          | `st sys i ncdu`          |
-| Install duf               | `st system install duf`           | `st sys i duf`           |
-| Install vnstat            | `st system install vnstat`        | `st sys i vnstat`        |
-| Install ufw               | `st system install ufw`           | `st sys i ufw`           |
-| Install bat               | `st system install bat`           | `st sys i bat`           |
-| Install rclone            | `st system install rclone`        | `st sys i rclone`        |
-| Install restic            | `st system install restic`        | `st sys i restic`        |
-| Install resticprofile     | `st system install resticprofile` | `st sys i resticprofile` |
-| Uninstall the above       | `st system uninstall <package>`   | `st sys un <pkg>`        |
 
 ### st network
 

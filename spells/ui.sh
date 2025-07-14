@@ -11,9 +11,11 @@ fi
 # Ordered Menu Definitions
 # -------------------------------
 
-MAIN_MENU_ORDER=(system docker network ssh rclone restic resticprofile tmux tailscale config)
+MAIN_MENU_ORDER=(install uninstall system docker network ssh rclone restic resticprofile tmux tailscale config)
 
 declare -A COMMAND_GROUPS=(
+  [install]="Install popular packages"
+  [uninstall]="Uninstall packages"
   [system]="System management utilities"
   [docker]="Docker container tools"
   [network]="Network helper utilities"
@@ -27,7 +29,9 @@ declare -A COMMAND_GROUPS=(
 )
 
 # Ordered subcommand lists per group
-declare -A SUBCOMMANDS_order_system=( [0]=info [1]=smart [2]=disk [3]=update [4]=upgrade [5]=update-upgrade [6]=install [7]=uninstall )
+declare -A SUBCOMMANDS_order_install=( [0]=all )
+declare -A SUBCOMMANDS_order_uninstall=( [0]=all )
+declare -A SUBCOMMANDS_order_system=( [0]=info [1]=smart [2]=disk [3]=update [4]=upgrade [5]=update-upgrade )
 declare -A SUBCOMMANDS_order_docker=( [0]=compose [1]=stop-all [2]=start-all [3]=manage-stacks )
 declare -A SUBCOMMANDS_order_network=( [0]=interfaces [1]=linkspeed [2]=speedtest [3]=publicip [4]=localip [5]=wifiinfo )
 declare -A SUBCOMMANDS_order_ssh=( [0]=keygen )
@@ -39,6 +43,8 @@ declare -A SUBCOMMANDS_order_tailscale=( [0]=up [1]=down [2]=status )
 declare -A SUBCOMMANDS_order_config=( [0]=show [1]=edit [2]=verify [3]=source )
 
 # Subcommand descriptions per group
+declare -A SUBCOMMANDS_install=( [all]="Install all packages" )
+declare -A SUBCOMMANDS_uninstall=( [all]="Uninstall all packages" )
 declare -A SUBCOMMANDS_system=(
   [info]="System info"
   [smart]="SSD SMART status"
@@ -46,8 +52,6 @@ declare -A SUBCOMMANDS_system=(
   [update]="Update packages"
   [upgrade]="Upgrade packages"
   [update-upgrade]="Update and upgrade"
-  [install]="Install packages"
-  [uninstall]="Uninstall packages"
 )
 declare -A SUBCOMMANDS_docker=(
   [compose]="Docker Compose utilities"
@@ -154,20 +158,36 @@ main_loop() {
     declare -n desc_map="$sub_desc"
 
     while true; do
-      mapfile -t sub_items < <(build_menu_ordered order_arr desc_map)
-      sub_items+=("back: Return")
-      sub_choice=$(gum choose "${sub_items[@]}")
-      sub="$(echo "${sub_choice%%:*}" | xargs)"
-      [[ "$sub" == "back" ]] && break
+      # For install/uninstall, show 'all' and all packages as subcommands
+      if [[ "$group" =~ ^(install|uninstall)$ ]]; then
+        sub_items=("$(pad all "All packages")")
+        for pkg in "${INSTALL_ORDER[@]}"; do
+          sub_items+=("$(pad "$pkg" "${INSTALLABLE_PACKAGES[$pkg]}")")
+        done
+        sub_items+=("back: Return")
+        sub_choice=$(gum choose "${sub_items[@]}")
+        sub="$(echo "${sub_choice%%:*}" | xargs)"
+        [[ "$sub" == "back" ]] && break
 
-      if [[ "$group" == "system" && "$sub" =~ ^(install|uninstall)$ ]]; then
-        mapfile -t pkg_items < <(build_menu_ordered INSTALL_ORDER INSTALLABLE_PACKAGES)
-        pkg_items+=("back: Cancel")
-        pkg_choice=$(gum choose "${pkg_items[@]}")
-        pkg="$(echo "${pkg_choice%%:*}" | xargs)"
-        [[ "$pkg" == "back" ]] && continue
-        invoke_command "$group" "$sub" "$pkg"
+        if [[ "$sub" == "all" ]]; then
+          if [[ "$group" == "install" ]]; then
+            st install all
+          else
+            st uninstall all
+          fi
+        else
+          if [[ "$group" == "install" ]]; then
+            st install "$sub"
+          else
+            st uninstall "$sub"
+          fi
+        fi
       else
+        mapfile -t sub_items < <(build_menu_ordered order_arr desc_map)
+        sub_items+=("back: Return")
+        sub_choice=$(gum choose "${sub_items[@]}")
+        sub="$(echo "${sub_choice%%:*}" | xargs)"
+        [[ "$sub" == "back" ]] && break
         invoke_command "$group" "$sub"
       fi
 
@@ -187,8 +207,6 @@ cmd::system_disk()          { st system disk; }
 cmd::system_update()        { st system update; }
 cmd::system_upgrade()       { st system upgrade; }
 cmd::system_update-upgrade(){ st system update-upgrade; }
-cmd::system_install()       { st system install "$1"; }
-cmd::system_uninstall()     { st system uninstall "$1"; }
 
 cmd::docker_compose()       { st docker compose; }
 cmd::docker_stop-all()      { st docker compose stop-all; }

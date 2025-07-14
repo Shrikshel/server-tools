@@ -1,0 +1,39 @@
+name: uninstall
+help: Uninstall Packages
+alias: un
+examples:
+  - st sys uninstall all
+  - st sys un all
+  - st sys uninstall docker
+  - st sys un docker
+  - st sys uninstall btop
+  - st sys un btop
+commands:
+  - name: all
+    help: Uninstall all packages
+  - name: docker
+    help: Uninstall Docker
+  - name: btop
+    help: Uninstall btop
+  - name: eza
+    help: Uninstall eza
+  - name: neofetch
+    help: Uninstall neofetch
+  - name: ncdu
+    help: Uninstall ncdu
+  - name: duf
+    help: Uninstall duf
+  - name: vnstat
+    help: Uninstall vnstat
+  - name: ufw
+    help: Uninstall ufw
+  - name: bat
+    help: Uninstall bat
+  - name: rclone
+    help: Uninstall rclone
+  - name: restic
+    help: Uninstall restic
+  - name: resticprofile
+    help: Uninstall restic profile
+  - name: tmux
+    help: Uninstall tmux
