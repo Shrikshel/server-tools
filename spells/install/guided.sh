@@ -42,17 +42,21 @@ declare -A DESCRIPTIONS=(
 )
 
 main() {
-  echo "\n🧑‍💻 Welcome to the Server Tools Guided Installer!"
-  echo "This wizard will help you install popular server utilities one by one."
-  echo
+  log_info "\n🧑‍💻 Welcome to the Server Tools Guided Installer!"
+  log_info "This wizard will help you install popular server utilities one by one."
+  log_info
 
   for pkg in "${PACKAGES[@]}"; do
     desc="${DESCRIPTIONS[$pkg]}"
-    gum confirm "Install $pkg — $desc?" && st install "$pkg"
-    echo
+    if ! st "$pkg" --version &>/dev/null && ! command -v "$pkg" &>/dev/null; then
+      gum confirm "Install $pkg — $desc?" && st install "$pkg"
+      echo
+    else
+      log_info "$pkg is already installed. Skipping."
+    fi
   done
 
-  echo "✅ Guided installation complete!"
+  log_success "✅ Guided installation complete!"
 }
 
 main "$@"

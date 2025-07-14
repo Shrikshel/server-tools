@@ -42,17 +42,21 @@ declare -A DESCRIPTIONS=(
 )
 
 main() {
-  echo "\n🧑‍💻 Welcome to the Server Tools Guided Uninstaller!"
-  echo "This wizard will help you uninstall server utilities one by one."
-  echo
+  log_info "\n🧑‍💻 Welcome to the Server Tools Guided Uninstaller!"
+  log_info "This wizard will help you uninstall server utilities one by one."
+  log_info
 
   for pkg in "${PACKAGES[@]}"; do
     desc="${DESCRIPTIONS[$pkg]}"
-    gum confirm "Uninstall $pkg — $desc?" && st uninstall "$pkg"
-    echo
+    if st "$pkg" --version &>/dev/null || command -v "$pkg" &>/dev/null; then
+      gum confirm "Uninstall $pkg — $desc?" && st uninstall "$pkg"
+      echo
+    else
+      log_info "$pkg is not installed. Skipping."
+    fi
   done
 
-  echo "✅ Guided uninstallation complete!"
+  log_success "✅ Guided uninstallation complete!"
 }
 
 main "$@"
