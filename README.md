@@ -380,7 +380,7 @@ If you discover a security vulnerability, please report it responsibly by openin
 </p>
 <p align="center">
   <img src="assets/ss2.png" width="600" alt="Server Tools Screenshot 2"/>
-  <br><em>System Info Example</em>
+  <br><em>Installation Example</em>
 </p>
 <p align="center">
   <img src="assets/ss3.png" width="600" alt="Server Tools Screenshot 3"/>
