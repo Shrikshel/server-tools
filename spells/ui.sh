@@ -92,21 +92,21 @@ declare -A SUBCOMMANDS_tailscale=(
 declare -A SUBCOMMANDS_config=( [show]="Show config" [edit]="Edit config" [verify]="Verify config" [source]="Source config" )
 
 # Installable packages
-INSTALL_ORDER=(btop htop neofetch ncdu duf vnstat ufw bat docker restic rclone resticprofile eza)
+INSTALL_ORDER=(bat btop docker duf eza ncdu neofetch rclone restic resticprofile tmux ufw vnstat)
 declare -A INSTALLABLE_PACKAGES=(
-  [btop]="Resource monitor"
-  [htop]="Process viewer"
-  [neofetch]="System summary"
-  [ncdu]="Disk usage visualizer"
-  [duf]="Disk utility frontend"
-  [vnstat]="Network monitor"
-  [ufw]="Firewall manager"
   [bat]="Cat with wings"
+  [btop]="Resource monitor"
   [docker]="Docker runtime"
-  [restic]="Restic backup"
-  [rclone]="Cloud sync"
-  [resticprofile]="Profile wrapper"
+  [duf]="Disk utility frontend"
   [eza]="Modern ls alternative"
+  [ncdu]="Disk usage visualizer"
+  [neofetch]="System summary"
+  [rclone]="Cloud sync"
+  [restic]="Restic backup"
+  [resticprofile]="Profile wrapper"
+  [tmux]="Terminal multiplexer"
+  [ufw]="Firewall manager"
+  [vnstat]="Network monitor"
 )
 
 # -------------------------------
