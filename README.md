@@ -52,6 +52,7 @@
     - [st install](#st-install)
     - [st uninstall](#st-uninstall)
     - [st system](#st-system)
+    - [st systemctl](#st-systemctl)
     - [st network](#st-network)
     - [st telegram](#st-telegram)
     - [st tmux](#st-tmux)
@@ -235,6 +236,23 @@ System management utilities for updates and diagnostics:
 | Show system info          | `st system info`                  | `st sys info`            |
 | Show SSD SMART stats      | `st system smart`                 | `st sys smart`           |
 | Show disk usage stats     | `st system disk`                  | `st sys disk`            |
+
+### st systemctl
+
+Systemd control utilities for managing services and viewing logs:
+
+| Description                       | Full Command                                | Alias           |
+| --------------------------------- | ------------------------------------------- | --------------- |
+| Systemd Control Utilities         | `st systemctl`                              | `st sc`         |
+| Start a systemd service           | `st systemctl start <service>`              | `st sc start`   |
+| Stop a systemd service            | `st systemctl stop <service>`               | `st sc stop`    |
+| Restart a systemd service         | `st systemctl restart <service>`            | `st sc restart` |
+| Check status of a systemd service | `st systemctl status <service>`             | `st sc status`  |
+| Enable a service to start on boot | `st systemctl enable <service>`             | `st sc enable`  |
+| Disable a service from starting   | `st systemctl disable <service>`            | `st sc disable` |
+| List all systemd services         | `st systemctl list`                         | `st sc list`    |
+| View service logs                  | `st systemctl logs <service>`               | `st sc logs`    |
+| Reload systemd manager config     | `st systemctl daemon-reload`                | `st sc daemon-reload` |
 
 ### st network
 
