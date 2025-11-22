@@ -252,6 +252,7 @@ Systemd control utilities for managing services and viewing logs:
 | Disable a service from starting   | `st systemctl disable <service>`            | `st sc disable` |
 | List all systemd services         | `st systemctl list`                         | `st sc list`    |
 | View service logs                  | `st systemctl logs <service>`               | `st sc logs`    |
+| Show the unit file of a service   | `st systemctl cat <service>`                | `st sc cat`     |
 | Reload systemd manager config     | `st systemctl daemon-reload`                | `st sc daemon-reload` |
 
 ### st network

@@ -91,3 +91,13 @@ commands:
     examples:
       - st systemctl daemon-reload
       - st sc daemon-reload
+
+  - name: cat
+    help: Show the unit file of a systemd service
+    alias: c
+    examples:
+      - st systemctl cat nginx
+      - st sc cat apache2
+    args:
+      - name: service
+        help: Name of the service to show the unit file for

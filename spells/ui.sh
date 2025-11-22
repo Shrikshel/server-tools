@@ -17,6 +17,7 @@ declare -A COMMAND_GROUPS=(
   [install]="Install popular packages"
   [uninstall]="Uninstall packages"
   [system]="System management utilities"
+  [systemctl]="Systemd service management"
   [docker]="Docker container tools"
   [network]="Network helper utilities"
   [ssh]="SSH key management"
@@ -41,7 +42,7 @@ declare -A SUBCOMMANDS_order_resticprofile=( [0]=show [1]=snapshots [2]=stats [3
 declare -A SUBCOMMANDS_order_tmux=( [0]=list-sessions [1]=new-session [2]=attach-session [3]=kill-session [4]=cheatsheet )
 declare -A SUBCOMMANDS_order_tailscale=( [0]=up [1]=down [2]=status )
 declare -A SUBCOMMANDS_order_config=( [0]=show [1]=edit [2]=verify [3]=source )
-declare -A SUBCOMMANDS_order_systemctl=( [0]=start [1]=stop [2]=restart [3]=status [4]=enable [5]=disable [6]=list [7]=logs [8]=daemon-reload )
+declare -A SUBCOMMANDS_order_systemctl=( [0]=start [1]=stop [2]=restart [3]=status [4]=enable [5]=disable [6]=list [7]=logs [8]=cat [9]=daemon-reload )
 
 # Subcommand descriptions per group
 declare -A SUBCOMMANDS_install=( [all]="Install all packages" )
@@ -69,6 +70,7 @@ declare -A SUBCOMMANDS_docker=(
     [disable]="Disable a service from starting on boot"
     [list]="List all systemd services"
     [logs]="View logs for a systemd service"
+    [cat]="Show the unit file of a systemd service"
     [daemon-reload]="Reload systemd manager configuration"
   )
 declare -A SUBCOMMANDS_network=(
@@ -260,14 +262,64 @@ cmd::tmux_cheatsheet()      { st tmux cheatsheet; }
 
 cmd::tailscale_up()      { st tailscale up; }
 cmd::tailscale_down()    { st tailscale down; }
-cmd::systemctl_start()   { st systemctl start; }
-cmd::systemctl_stop()    { st systemctl stop; }
-cmd::systemctl_restart() { st systemctl restart; }
-cmd::systemctl_status()  { st systemctl status; }
-cmd::systemctl_enable()  { st systemctl enable; }
-cmd::systemctl_disable() { st systemctl disable; }
+cmd::systemctl_start() {
+  local service
+  service=$(gum input --placeholder "Enter service name" --prompt "🚀 Service: ") || return
+  [[ -z "$service" ]] && echo "❌ Service name is required." && return
+  st systemctl start "$service"
+}
+
+cmd::systemctl_stop() {
+  local service
+  service=$(gum input --placeholder "Enter service name" --prompt "⏹️  Service: ") || return
+  [[ -z "$service" ]] && echo "❌ Service name is required." && return
+  st systemctl stop "$service"
+}
+
+cmd::systemctl_restart() {
+  local service
+  service=$(gum input --placeholder "Enter service name" --prompt "🔄 Service: ") || return
+  [[ -z "$service" ]] && echo "❌ Service name is required." && return
+  st systemctl restart "$service"
+}
+
+cmd::systemctl_status() {
+  local service
+  service=$(gum input --placeholder "Enter service name" --prompt "📊 Service: ") || return
+  [[ -z "$service" ]] && echo "❌ Service name is required." && return
+  st systemctl status "$service"
+}
+
+cmd::systemctl_enable() {
+  local service
+  service=$(gum input --placeholder "Enter service name" --prompt "✅ Service: ") || return
+  [[ -z "$service" ]] && echo "❌ Service name is required." && return
+  st systemctl enable "$service"
+}
+
+cmd::systemctl_disable() {
+  local service
+  service=$(gum input --placeholder "Enter service name" --prompt "❌ Service: ") || return
+  [[ -z "$service" ]] && echo "❌ Service name is required." && return
+  st systemctl disable "$service"
+}
+
 cmd::systemctl_list()    { st systemctl list; }
-cmd::systemctl_logs()    { st systemctl logs; }
+
+cmd::systemctl_logs() {
+  local service
+  service=$(gum input --placeholder "Enter service name" --prompt "📜 Service: ") || return
+  [[ -z "$service" ]] && echo "❌ Service name is required." && return
+  st systemctl logs "$service"
+}
+
+cmd::systemctl_cat() {
+  local service
+  service=$(gum input --placeholder "Enter service name" --prompt "📄 Service: ") || return
+  [[ -z "$service" ]] && echo "❌ Service name is required." && return
+  st systemctl cat "$service"
+}
+
 cmd::systemctl_daemon-reload(){ st systemctl daemon-reload; }
 cmd::tailscale_status()  { st tailscale status; }
 
