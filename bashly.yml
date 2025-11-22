@@ -3,6 +3,7 @@ help: Server Tools CLI
 version: 1.0.0
 commands:
   - import: src/config/system.yml
+  - import: src/config/systemctl.yml
   - import: src/config/install.yml
   - import: src/config/uninstall.yml
   - import: src/config/rclone.yml

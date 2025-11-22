@@ -1,0 +1,93 @@
+name: systemctl
+alias: sc
+help: Systemd Control Utilities
+examples:
+  - st systemctl start nginx
+  - st sc stop apache2
+  - st systemctl restart mysql
+  - st sc status postgresql
+  - st systemctl enable docker
+  - st sc disable ufw
+  - st systemctl list
+  - st sc logs nginx --follow
+  - st systemctl daemon-reload
+commands:
+  - name: start
+    help: Start a systemd service
+    examples:
+      - st systemctl start nginx
+      - st sc start apache2
+    args:
+      - name: service
+        help: Name of the service to start
+
+  - name: stop
+    help: Stop a systemd service
+    examples:
+      - st systemctl stop nginx
+      - st sc stop apache2
+    args:
+      - name: service
+        help: Name of the service to stop
+
+  - name: restart
+    help: Restart a systemd service
+    examples:
+      - st systemctl restart mysql
+      - st sc restart postgresql
+    args:
+      - name: service
+        help: Name of the service to restart
+
+  - name: status
+    help: Check the status of a systemd service
+    examples:
+      - st systemctl status nginx
+      - st sc status apache2
+    args:
+      - name: service
+        help: Name of the service to check status for
+
+  - name: enable
+    help: Enable a systemd service to start on boot
+    alias: e
+    examples:
+      - st systemctl enable docker
+      - st sc enable ufw
+    args:
+      - name: service
+        help: Name of the service to enable
+
+  - name: disable
+    help: Disable a systemd service from starting on boot
+    alias: d
+    examples:
+      - st systemctl disable docker
+      - st sc disable ufw
+    args:
+      - name: service
+        help: Name of the service to disable
+
+  - name: list
+    help: List all systemd services and their statuses
+    alias: ls
+    examples:
+      - st systemctl list
+      - st sc list
+
+  - name: logs
+    help: View logs for a systemd service
+    alias: lg
+    examples:
+      - st systemctl logs nginx --follow
+      - st sc logs apache2 --since "1 hour ago"
+    args:
+      - name: service
+        help: Name of the service to view logs for
+  
+  - name: daemon-reload
+    help: Reload systemd manager configuration
+    alias: dr
+    examples:
+      - st systemctl daemon-reload
+      - st sc daemon-reload

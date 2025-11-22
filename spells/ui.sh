@@ -11,7 +11,7 @@ fi
 # Ordered Menu Definitions
 # -------------------------------
 
-MAIN_MENU_ORDER=(install uninstall system docker network ssh rclone restic resticprofile tmux tailscale config)
+MAIN_MENU_ORDER=(install uninstall system systemctl docker network ssh rclone restic resticprofile tmux tailscale config)
 
 declare -A COMMAND_GROUPS=(
   [install]="Install popular packages"
@@ -41,6 +41,7 @@ declare -A SUBCOMMANDS_order_resticprofile=( [0]=show [1]=snapshots [2]=stats [3
 declare -A SUBCOMMANDS_order_tmux=( [0]=list-sessions [1]=new-session [2]=attach-session [3]=kill-session [4]=cheatsheet )
 declare -A SUBCOMMANDS_order_tailscale=( [0]=up [1]=down [2]=status )
 declare -A SUBCOMMANDS_order_config=( [0]=show [1]=edit [2]=verify [3]=source )
+declare -A SUBCOMMANDS_order_systemctl=( [0]=start [1]=stop [2]=restart [3]=status [4]=enable [5]=disable [6]=list [7]=logs [8]=daemon-reload )
 
 # Subcommand descriptions per group
 declare -A SUBCOMMANDS_install=( [all]="Install all packages" )
@@ -59,6 +60,17 @@ declare -A SUBCOMMANDS_docker=(
   [start-all]="Start all containers"
   [manage-stacks]="Manage Compose stacks"
 )
+  declare -A SUBCOMMANDS_systemctl=(
+    [start]="Start a systemd service"
+    [stop]="Stop a systemd service"
+    [restart]="Restart a systemd service"
+    [status]="Check the status of a systemd service"
+    [enable]="Enable a service to start on boot"
+    [disable]="Disable a service from starting on boot"
+    [list]="List all systemd services"
+    [logs]="View logs for a systemd service"
+    [daemon-reload]="Reload systemd manager configuration"
+  )
 declare -A SUBCOMMANDS_network=(
   [interfaces]="Show interfaces"
   [linkspeed]="Link speed"
@@ -248,6 +260,15 @@ cmd::tmux_cheatsheet()      { st tmux cheatsheet; }
 
 cmd::tailscale_up()      { st tailscale up; }
 cmd::tailscale_down()    { st tailscale down; }
+cmd::systemctl_start()   { st systemctl start; }
+cmd::systemctl_stop()    { st systemctl stop; }
+cmd::systemctl_restart() { st systemctl restart; }
+cmd::systemctl_status()  { st systemctl status; }
+cmd::systemctl_enable()  { st systemctl enable; }
+cmd::systemctl_disable() { st systemctl disable; }
+cmd::systemctl_list()    { st systemctl list; }
+cmd::systemctl_logs()    { st systemctl logs; }
+cmd::systemctl_daemon-reload(){ st systemctl daemon-reload; }
 cmd::tailscale_status()  { st tailscale status; }
 
 cmd::rclone_dry-sync() {
